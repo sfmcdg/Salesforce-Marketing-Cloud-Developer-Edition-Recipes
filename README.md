@@ -1,9 +1,9 @@
 
 #Salesforce Marketing Cloud Developer Edition Recipes
 
-> Recipes for sharing
+> Salesforce Marketing Cloud Developer Edition Recipes for Sharing
 
-## Start your Journey
+## Start your journey
 
-Signup for a free Marketing Cloud Developer Edition account here https://code.exacttarget.com/developer-edition/
+Signup for a free [Marketing Cloud Developer Edition account](here https://code.exacttarget.com/developer-edition/) and have a look around.
 
