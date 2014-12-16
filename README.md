@@ -5,5 +5,5 @@
 
 ## Start your journey
 
-Signup for a free [Marketing Cloud Developer Edition account](here https://code.exacttarget.com/developer-edition/) and have a look around.
+Signup for a free [Marketing Cloud Developer Edition account](https://code.exacttarget.com/developer-edition/) and have a look around.
 
