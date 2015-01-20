@@ -14,17 +14,17 @@ The following steps detail the procedure for creating and starting the workflow.
 
 1. Create a new Sendable Data Extension in the Email App with the following fields:
 
-|Field|Type|Length|PrimaryKey|Nullable|Default Value|
-|----|----|----|----|----|----|
-|MemberID|Number||Yes|||
-|FirstName|Text|50||Yes||
-|LastName|Text|50||Yes||
-|EmailAddress|Text|50||Yes||
-|Updated|Boolean|||Yes|False|
+  |Field|Type|Length|PrimaryKey|Nullable|Default Value|
+  |----|----|----|----|----|----|
+  |MemberID|Number||Yes|||
+  |FirstName|Text|50||Yes||
+  |LastName|Text|50||Yes||
+  |EmailAddress|Text|50||Yes||
+  |Updated|Boolean|||Yes|False|
 
 Send Relationship 'MemberID' relates to Subscribers on 'Subscriber Key'
 
-![Customer Data Extension](img/customer-data-extension.png "Customer Data Extension")
+  ![Customer Data Extension](img/customer-data-extension.png "Customer Data Extension")
 
 Make a note of the External Key before moving onto the next step.
 
@@ -32,11 +32,11 @@ Make a note of the External Key before moving onto the next step.
 
 3. Link to Data Extension you created in Step 1, creating a Root Relationship with Contact ID linking to MemberID
 
-   ![Link Data Extension](img/link-data-extension.png "Link Data Extension")
+ ![Link Data Extension](img/link-data-extension.png "Link Data Extension")
 
 4. Create a New Event with a unique Name and Event Key, then select the Attribute Group from Step 2 as the Event Destination.
 
-   ![Create New Event](img/create-new-event.png "Create New Event")
+ ![Create New Event](img/create-new-event.png "Create New Event")
 
 5. Create a Data Extension for the Event Data by selecting 'Create New Data Extension' **while still in the Event** (this is important, as it will automatically create additional required fields).
 
@@ -46,11 +46,11 @@ Make a note of the External Key before moving onto the next step.
 
 8. In the Attributes section add the additonal field or fields that you want to add for the Contact when posting the Event Data.
 
-   ![New Data Extension Attributes](img/new-data-extension-attributes.png "New Data Extension Attributes")
+ ![New Data Extension Attributes](img/new-data-extension-attributes.png "New Data Extension Attributes")
 
 9. In the Link Data Extension Section, select the Data Extension from Step 1 from Root Data Section and link MemberID to ContactKey
 
-   ![Link Data Extension](img/link-data-extension-from-event.png "Link Data Extension")
+ ![Link Data Extension](img/link-data-extension-from-event.png "Link Data Extension")
 
 10. Click Create
 
@@ -58,7 +58,7 @@ Make a note of the External Key before moving onto the next step.
 
 12. Open the Attribute Group from step 2 and you will note that the Attribute Set (or Data Extension) selected from Step 9 has been added as a one-to-many relationship.
 
-   ![Attribute Group Relationship](img/attribute-group-relationship.png "Attribute Group Relationship")
+ ![Attribute Group Relationship](img/attribute-group-relationship.png "Attribute Group Relationship")
 
 13. Open Journey Builder and create a new Interaction
 
@@ -66,7 +66,7 @@ Make a note of the External Key before moving onto the next step.
 
 15. Create an Expression using the 'Updated' attribute and set the condition to 'Is False'\
 
-   ![Configure Trigger](img/configure-trigger.png "Configure Trigger")
+  ![Configure Trigger](img/configure-trigger.png "Configure Trigger")
 
 16. Choose the Data Extension from Step 1 as the Event Source
 
@@ -82,7 +82,7 @@ Make a note of the External Key before moving onto the next step.
 
 22. Set the Updated Attribute to True and click Done
 
-   ![Set Attribute](img/set-attribute.png "Set Attribute")
+ ![Set Attribute](img/set-attribute.png "Set Attribute")
 
 23. Save the Interaction
 
@@ -132,7 +132,7 @@ Make a note of the External Key before moving onto the next step.
   curl -XPOST -H "Content-type: text/xml; charset=utf-8" -H "SOAPAction: Create" -d @request.xml https://webservice.s7.exacttarget.com/Service.asmx
   ```
 
-You should receive the following response:
+  You should receive the following response:
 
   ```
   <?xml version="1.0" encoding="utf-8"?>
@@ -194,7 +194,7 @@ You should receive the following response:
   </soap:Envelope>
   ```
 
-If you view the Data Extension in the Email app, you will see that the record now appears.
+  If you view the Data Extension in the Email app, you will see that the record now appears.
 
 28. We are now ready to fire the Event. This will create a new record in the Events Data Extension from step 5 which is linked to the Customer Data Extension, and in turn the Contact will enter the Interaction. Using the same `accessToken` make the following REST API request:
 
