@@ -22,21 +22,21 @@ The following steps detail the procedure for creating and starting the workflow.
   |EmailAddress|Text|50||Yes||
   |Updated|Boolean|||Yes|False|
 
-Send Relationship 'MemberID' relates to Subscribers on 'Subscriber Key'
+  Send Relationship 'MemberID' relates to Subscribers on 'Subscriber Key'
 
   ![Customer Data Extension](img/customer-data-extension.png "Customer Data Extension")
 
-Make a note of the External Key before moving onto the next step.
+  Make a note of the External Key before moving onto the next step.
 
 2. Open Contact Builder and Create a New Attribute Group
 
 3. Link to Data Extension you created in Step 1, creating a Root Relationship with Contact ID linking to MemberID
 
- ![Link Data Extension](img/link-data-extension.png "Link Data Extension")
+  ![Link Data Extension](img/link-data-extension.png "Link Data Extension")
 
 4. Create a New Event with a unique Name and Event Key, then select the Attribute Group from Step 2 as the Event Destination.
 
- ![Create New Event](img/create-new-event.png "Create New Event")
+  ![Create New Event](img/create-new-event.png "Create New Event")
 
 5. Create a Data Extension for the Event Data by selecting 'Create New Data Extension' **while still in the Event** (this is important, as it will automatically create additional required fields).
 
@@ -46,11 +46,11 @@ Make a note of the External Key before moving onto the next step.
 
 8. In the Attributes section add the additonal field or fields that you want to add for the Contact when posting the Event Data.
 
- ![New Data Extension Attributes](img/new-data-extension-attributes.png "New Data Extension Attributes")
+  ![New Data Extension Attributes](img/new-data-extension-attributes.png "New Data Extension Attributes")
 
 9. In the Link Data Extension Section, select the Data Extension from Step 1 from Root Data Section and link MemberID to ContactKey
 
- ![Link Data Extension](img/link-data-extension-from-event.png "Link Data Extension")
+  ![Link Data Extension](img/link-data-extension-from-event.png "Link Data Extension")
 
 10. Click Create
 
@@ -58,7 +58,7 @@ Make a note of the External Key before moving onto the next step.
 
 12. Open the Attribute Group from step 2 and you will note that the Attribute Set (or Data Extension) selected from Step 9 has been added as a one-to-many relationship.
 
- ![Attribute Group Relationship](img/attribute-group-relationship.png "Attribute Group Relationship")
+  ![Attribute Group Relationship](img/attribute-group-relationship.png "Attribute Group Relationship")
 
 13. Open Journey Builder and create a new Interaction
 
@@ -82,7 +82,7 @@ Make a note of the External Key before moving onto the next step.
 
 22. Set the Updated Attribute to True and click Done
 
- ![Set Attribute](img/set-attribute.png "Set Attribute")
+  ![Set Attribute](img/set-attribute.png "Set Attribute")
 
 23. Save the Interaction
 
