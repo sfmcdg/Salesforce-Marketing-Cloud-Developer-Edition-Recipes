@@ -64,7 +64,7 @@ The following steps detail the procedure for creating and starting the workflow.
 
 14. Select a Trigger then select Create Trigger
 
-15. Create an Expression using the 'Updated' attribute and set the condition to 'Is False'\
+15. Create an Expression using the 'Updated' attribute and set the condition to 'Is False'
 
   ![Configure Trigger](img/configure-trigger.png "Configure Trigger")
 
