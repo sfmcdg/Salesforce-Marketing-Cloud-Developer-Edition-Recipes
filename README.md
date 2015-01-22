@@ -9,7 +9,7 @@
 
 **Recipe 1 - Setup an account** - Signup for a free [Marketing Cloud Developer Edition account](https://code.exacttarget.com/developer-edition/) and have a look around. When you confirm your email you will receive a **thank you for signing up and welcome email** that contains helpful links for getting started and finding information.
 
-**Recipe 2 - Step by step guide to sending an email** - [discussion about how to send an email](step-by-step-guide-to-sending-an-email-with-journey-builder.md)
+**Recipe 2 - [Step by step guide to sending an email](step-by-step-guide-to-sending-an-email-with-journey-builder.md) - discussion about how to send an email.
 
 ## More recipes coming soon ...
 
