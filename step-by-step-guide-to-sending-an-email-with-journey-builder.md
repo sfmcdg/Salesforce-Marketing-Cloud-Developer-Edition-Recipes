@@ -1,4 +1,4 @@
-#Step by step guide to sending email with journey builder
+#Step by step guide to sending an email with journey builder
 
 In this example an email will be sent when a new record is added to the data extension.
 
