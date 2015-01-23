@@ -9,9 +9,11 @@
 
 **Recipe 1 - Setup an account** - Signup for a free [Marketing Cloud Developer Edition account](https://code.exacttarget.com/developer-edition/) and have a look around. When you confirm your email you will receive a **thank you for signing up and welcome email** that contains helpful links for getting started and finding information.
 
+**Recipe 2 - Send an email** - Visit [step by step guide to sending an email](step-by-step-guide-to-sending-an-email-with-journey-builder.md) to learn about how to send an email.
+
 ## More recipes coming soon ...
 
-Recipes will discuss stuff like ... sending an email, doing queries and exploring what can be done with the Marketing Cloud APIs. Where possible I will try and keep all language easy to understand.
+Recipes will discuss stuff like ... doing queries and exploring what can be done with the Marketing Cloud APIs. Where possible I will try and keep all language easy to understand.
 
 ## Do you have a question, something to share or want to find out more?
 
