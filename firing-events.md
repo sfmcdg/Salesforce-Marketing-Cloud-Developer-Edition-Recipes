@@ -1,8 +1,8 @@
 # Firing Events
 
-An Interaction starts when an Event is fired. This will be heard by a Trigger, which prompts the Interaction to begin.
+An Interaction starts when an Event is fired. The Event will be heard by a Trigger, which prompts the Interaction to begin. Contacts that meet the Contact Filter Criteria defined by the Trigger will enter into the Interaction.
 
-Events can be fired either by using the contactEvents REST API method or by creating an Automation in Automation Studio. This document explains the steps for using both procedures.
+Events can be fired either by using the contactEvents Fuel REST API method or by creating an Automation using Automation Studio. This document explains the steps for using both procedures.
 
 ## Configuration
 
@@ -109,7 +109,7 @@ Now that the Attribute Group has been created and the Interaction is running, we
 
 3. Name the Automation by clicking on the 'Untitled Automation' field in the top left corner, enter a name and click **Done**.
 
-4. Drag a **Fire Event** Activity from the Activities panel the the Automation Canvas.
+4. Drag a **Fire Event** Activity from the Activities panel onto the Automation Canvas.
 
   ![Fire Event in Automation Canvas](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/automation-studio-fire-event.png "Adding a Fire Event to the Automation Canvas") *Adding a Fire Event to the Automation Canvas*
 
@@ -121,7 +121,7 @@ Now that the Attribute Group has been created and the Interaction is running, we
 
   ![Review Automation Activities](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/automation-activities.png "Review Activities for an Automation in Automation Studio") *Review Activities for an Automation in Automation Studio*
 
-8. Check that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the records has been set to True by the Update Customer Data Activity in the Interaction.
+8. Check that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the records has been set to True by the Update Customer Data Activity in the Interaction. It may take a few minutes for the Interaction Trigger to hear the Event, so if the fields are not updated, check again later.
 
   ![Updated Data Extension Records](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/updated-data-extension-records.png "Data Extension records updated in Contact Builder") *Data Extension records updated in Contact Builder*
 
