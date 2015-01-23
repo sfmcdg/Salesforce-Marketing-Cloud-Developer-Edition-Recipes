@@ -71,7 +71,7 @@ Now that the Data Extension and Attribute Group has been created, we will create
 
   ![New Interaction](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/new-interaction.png "New Interaction in the Interaction Canvas") *New Interaction in the Interaction Canvas*
 
-3. Create a new Trigger by clicking on **Select a Trigger...* button, click the **Create Trigger** and click **Next**.
+3. Create a new Trigger by clicking on **Select a Trigger...** button, click the **Create Trigger** and click **Next**.
 
   ![Create Trigger](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/add-interaction-trigger.png "Adding a Trigger in the Interaction Canvas") *Adding a Trigger in the Interaction Canvas*
 
