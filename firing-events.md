@@ -1,222 +1,131 @@
 # Firing Events
 
-This document provides a step-by-step guide for creating an Event that is used to start an Interaction.
+An Interaction starts when an Event is fired. This will be heard by a Trigger, which prompts the Interaction to begin.
 
-## Workflow
+Events can be fired either by using the contactEvents REST API method or by creating an Automation in Automation Studio. This document explains the steps for using both procedures.
 
-When a customer updates their details in an external system, the `contactEvent` Fuel REST API menthod is used to serialize the event data into a linked Data Extension. A relationship exists between the linked Data Extension and a Customer Data Extension that is used by a Trigger in an Interaction. The Trigger listens for this event and the Contact enters the Interaction (assuming that the Contact Filter Criteria is met). This workflow is summarized in the diagram below.
+## Configuration
 
-![Firing Event Workflow](img/fire-event-flow.png "Firing Event Workflow")
+Before an Event can be fired, the following tasks must be completed:
 
-## Steps
+1. Setup a customer Data Extension
+2. Add records to the Data Extension
+3. Create an Interaction with Trigger and Events
+4. Start the Interaction
 
-The following steps detail the procedure for creating and starting the workflow.
+In this tutorial we will create a Data Extension for customers and build a simple Interaction to update a field in the Data Extension once the Contact enters the Interaction. The steps to completed these tasks are detailed below.
 
-1. Create a new Sendable Data Extension in the Email App with the following fields:
+## Configuring a Data Extension
 
-  |Field|Type|Length|PrimaryKey|Nullable|Default Value|
-  |----|----|----|----|----|----|
-  |MemberID|Number||Yes|||
-  |FirstName|Text|50||Yes||
-  |LastName|Text|50||Yes||
-  |EmailAddress|Text|50||Yes||
-  |Updated|Boolean|||Yes|False|
+A Data Extension can either be managed from within the Email app in Marketing Cloud, or from within Contact Builder. Configuring and adding records from Contact Builder provides convenience (as you don't need to open another application) but also provides additional functionality for adding and editing records in the Data Extension.
 
-  Send Relationship 'MemberID' relates to Subscribers on 'Subscriber Key'
+1. To create a new Data Extension, open Contact Builder from the Data & Analytics menu and select the **Data Extensions** tab. Click **Create** and enter a name for the Data Extension in the Name field. You can optionally complete the other fields in this dialog.
 
-  ![Customer Data Extension](img/customer-data-extension.png "Customer Data Extension")
+  ![Create New Data Extension](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/create-new-data-extension.png "Creating a new Data Extension in Contact Builder") *Creating a new Data Extension in Contact Builder*
 
-  Make a note of the External Key before moving onto the next step.
+2. Click the **Next** button twice and in the Attributes step, add the following attributes. These attributes (or Data Extension fields) are for a fictitious membership database.
 
-2. Open Contact Builder and Create a New Attribute Group
+  |PrimaryKey|Name|Data Type|Data Sources|Required|Length|Default Value|
+  |----|----|----|----|----|----|----|
+  |Yes|EmailAddress|Email Address|Unassigned|Yes|254||
+  ||MemberID|Number|Unassigned||||
+  ||FirstName|Text|Unassigned||50||
+  ||LastName|Text|Unassigned||50||
+  ||Updated|Boolean|Unassigned|||False|
 
-3. Link to Data Extension you created in Step 1, creating a Root Relationship with Contact ID linking to MemberID
+  ![Adding Attributes to a Data Extension](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/adding-attributes.png "Adding Attributes to a Data Extension in Contact Builder") *Adding Attributes to a Data Extension in Contact Builder*
 
-  ![Link Data Extension](img/link-data-extension.png "Link Data Extension")
+3. When you have completed all fields, click **Next** and **OK** to return to the Data Extensions interface. Now add records to the Data Extension by clicking on the Data Extension name and click on the Records tab. Use the **Add Record** button to insert a record into the Data Extension. Complete all fields, leaving the Updated field set to 'False'. Repeat this step to add additional records to the Data Extension.
 
-4. Create a New Event with a unique Name and Event Key, then select the Attribute Group from Step 2 as the Event Destination.
+  ![Adding records to a Data Extension](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/adding-records-to-data-extension.png "Adding records to a Data Extension in Contact Builder") *Adding records to a Data Extension in Contact Builder*
 
-  ![Create New Event](img/create-new-event.png "Create New Event")
+4. Finally we need to change the Data Extension Type to 'Sendable', as Data Extensions need to be 'Sendable' in order to be used as an Event Source in an Interaction Trigger. Select the **Properties** tab and under the Type selection click the **Edit** button. Click the 'Used For Sending' option, ensure that the 'EmailAddress' field is set to relate to the subscriber on 'Subscriber Key' and click **Save**.
 
-5. Create a Data Extension for the Event Data by selecting 'Create New Data Extension' **while still in the Event** (this is important, as it will automatically create additional required fields).
+  ![Updating a Data Extension Type](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/edit-data-extension-type.png "Updating a Data Extension Type in Contact Builder") *Updating a Data Extension Type in Contact Builder*
 
-6. Give the Data Extension a name and External Key
+## Creating an Attribute Group
 
-7. Skip past the Data Retention Policy
+Next we will define the relationship between a Contact Record in and the Data Extension that you have just created.
 
-8. In the Attributes section add the additonal field or fields that you want to add for the Contact when posting the Event Data.
+1. Select the Data Designer tab in Contact Builder to open Data Designer and click the **Create Attribute Group** button.
 
-  ![New Data Extension Attributes](img/new-data-extension-attributes.png "New Data Extension Attributes")
+2. Name the Attribute Group and click **Save**.
 
-9. In the Link Data Extension Section, select the Data Extension from Step 1 from Root Data Section and link MemberID to ContactKey
+  ![Naming Attribute Group](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/name-attribute-group.png "Naming an Attribute Group") *Naming an Attribute Group*
 
-  ![Link Data Extension](img/link-data-extension-from-event.png "Link Data Extension")
+3. Link to the Data Extension that you created previously by selecting **Link Data Extensions**. This opens the Link Data Extension dialog. Select the Data Extension you created earlier and link 'Contact Key' to 'Email Address' then set the relationship to a Root relationship by selecting **One** from the menu next to the Data Extension name and select the 'Use as root' option, thenk click **Save**.
 
-10. Click Create
+  ![Creating a Root Relationship](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/creating-root-relationship.png "Creating a Root Relationship for an Attribute Group") *Creating a Root Relationship for an Attribute Group*
 
-11. Click Start Event button in the top right corner of the page.
+4. You will now see the cardinal relationship that you have created between the Contact Record an the Data Extension. You can preview the link between the Contact Record and Data Extension by moving your cursor over the link icon.
 
-12. Open the Attribute Group from step 2 and you will note that the Attribute Set (or Data Extension) selected from Step 9 has been added as a one-to-many relationship.
+  ![Attribute Group Relationship](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/attribute-group-relationship.png "Relationship of an Attribute Group in Contact Builder") *Relationship of an Attribute Group in Contact Builder*
 
-  ![Attribute Group Relationship](img/attribute-group-relationship.png "Attribute Group Relationship")
+## Creating an Interaction
 
-13. Open Journey Builder and create a new Interaction
+Now that the Data Extension and Attribute Group has been created, we will create a new Interaction that uses the Attribute Group as the Event Source, then will update the 'Updated' attribute in the Attribute for a Contact when they move through the Interaction.
 
-14. Select a Trigger then select Create Trigger
+1. Open Journey Builder from the Marketing Automation menu and click the **New Interaction** button in the top right corner of the interface to open the new Interaction in the Interaction Canvas.
 
-15. Create an Expression using the 'Updated' attribute and set the condition to 'Is False'
+2. Name the Interaction by selecting the 'Untitled Interaction' field in the top left corner, add a name and click **Done**. 
 
-  ![Configure Trigger](img/configure-trigger.png "Configure Trigger")
+  ![New Interaction](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/new-interaction.png "New Interaction in the Interaction Canvas") *New Interaction in the Interaction Canvas*
 
-16. Choose the Data Extension from Step 1 as the Event Source
+3. Create a new Trigger by clicking on **Select a Trigger...* button, click the **Create Trigger** and click **Next**.
 
-17. Give the Trigger a unique name
+  ![Create Trigger](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/add-interaction-trigger.png "Adding a Trigger in the Interaction Canvas") *Adding a Trigger in the Interaction Canvas*
 
-18. Click Next twice, then click Done
+4. Create a name for the Trigger in the **Add Name** field.
 
-19. Drag Update Contact Data Activity into the 'Immediately' swim lane in the Interaction Canvas
+5. Click **Choose Data Extension** and select the Data Extension you created earlier.
 
-20. Select the Activity and click Configure
+6. Give the Trigger a name in the **Add Name** field. 
 
-21. Select the Data Extension from Step 1 and click Next
+7. Select the Attribute Group from the Atrributes list and drag the 'Updated' Atrribute to the Expression Editor. Change the value to **Is False**.
 
-22. Set the Updated Attribute to True and click Done
+  ![Configuring an Interaction Trigger](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/configuring-interaction-trigger.png "Configuring an Interaction Trigger in the Interaction Canvas") *Configuring an Interaction Trigger in the Interaction Canvas*
 
-  ![Set Attribute](img/set-attribute.png "Set Attribute")
+7. Click **Next** twice, then click **Done** to close the Interaction Trigger dialog.
 
-23. Save the Interaction
+8. Next we are going to add an Update Customer Data Activity so when a Contact enters the Interaction, we will immediately update the 'Updated' field in the Data Extension.
 
-24. Activate the Interaction
+  Drag the **Update Customer Data** Activity from the Activities panel to the 'Day 0' swim lane in the Interaction Canvas, move your cursor over the Activity and click **Configure**.
 
-25. Now we are ready to populate the Data Extension from Step 1 with a record. You will need to use the `requestToken` Fuel Autentication Service method to retrieve an `accessToken` (using the `clientId` and `clientSecret` values from the App you created in AppCenter).
+9. In the Update Contact Data dialog, select the Data Extension that you created earlier and click **Next**.
 
-26. Make the following request with the `accessToken` from the previous step and the External Key from the Data Extension you created in Step 1, and use it in the SOAP request envelope below. Save this envelope in a file named 'request.xml' 
+10. Select the **Updated** Atrribute from the Attribute Set menu and set the value to **True**, then click **Done**.
 
-  ```
-  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
-     <soap:Header>
-          <fueloauth xmlns="http://exacttarget.com">insert-access-token-here</fueloauth>
-     </soap:Header>
-     <soap:Body>
-        <CreateRequest xmlns="http://exacttarget.com/wsdl/partnerAPI">
-        <Options/>
-        <Objects xsi:type="DataExtensionObject">
-           <CustomerKey>441594C9-78A9-4226-811C-68B474766FC6</CustomerKey>
-           <Properties>
-              <Property>
-                 <Name>MemberID</Name>
-                 <Value>1</Value>
-              </Property>
-              <Property>
-                 <Name>FirstName</Name>
-                 <Value>Sam</Value>
-              </Property>
-              <Property>
-                 <Name>LastName</Name>
-                 <Value>Sample</Value>
-              </Property>
-              <Property>
-                 <Name>EmailAddress</Name>
-                 <Value>sam@sample.com</Value>
-              </Property>
-           </Properties>
-        </Objects>
-     </CreateRequest>
-    </soap:Body> 
-  </soap:Envelope>
-  ```
+  ![Setting Attribute Value](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/set-update-value-contact-data.png "Setting an Attribute value for an Update Customer Data Activity") *Setting an Attribute value for an Update Customer Data Activity*
 
-27. Make the SOAP request from the previous step using the following cURL command. You may need to update the endpoint to reference the endpoint used by your Marketing Cloud Account (which can be retrieved from the URL in Marketing Cloud).
+18. Now we are ready to publish the Interaction. Click the **Activate** button in the version panel on the top left corner of the Interface, then click **Activate** in the Activate Interaction dialog. The Interaction will be saved and changed to a 'running' state.
 
-  ```
-  curl -XPOST -H "Content-type: text/xml; charset=utf-8" -H "SOAPAction: Create" -d @request.xml https://webservice.s7.exacttarget.com/Service.asmx
-  ```
+## Firing an Event using Automation Studio
 
-  You should receive the following response:
+Now that the Attribute Group has been created and the Interaction is running, we can fire an Event to start the Interaction. We will use Automation Studio to fire an Event; when records are added to the Data Extension, Interaction Triggers that use the Data Extension as the Event Source will listen for the Event and Contacts that meet the Contact Filter Criteria will enter the Interaction.
 
-  ```
-  <?xml version="1.0" encoding="utf-8"?>
-  <soap:Envelope
-      xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
-      xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-      xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
-      <soap:Header>
-          <wsa:Action>CreateResponse</wsa:Action>
-          <wsa:MessageID>urn:uuid:3d9d91af-0bd6-44f8-8562-dbefb730de4e</wsa:MessageID>
-          <wsa:RelatesTo>urn:uuid:51aa910f-ff61-442e-a8e0-2015db9440cb</wsa:RelatesTo>
-          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
-          <wsse:Security>
-              <wsu:Timestamp wsu:Id="Timestamp-1fccc3d8-8a4e-42e8-a01e-e1381cf18d11">
-                  <wsu:Created>2015-01-20T19:07:46Z</wsu:Created>
-                  <wsu:Expires>2015-01-20T19:12:46Z</wsu:Expires>
-              </wsu:Timestamp>
-          </wsse:Security>
-      </soap:Header>
-      <soap:Body>
-          <CreateResponse
-              xmlns="http://exacttarget.com/wsdl/partnerAPI">
-              <Results xsi:type="DataExtensionCreateResult">
-                  <StatusCode>OK</StatusCode>
-                  <StatusMessage>Created DataExtensionObject</StatusMessage>
-                  <OrdinalID>0</OrdinalID>
-                  <NewID>0</NewID>
-                  <Object xsi:type="DataExtensionObject">
-                      <PartnerKey xsi:nil="true" />
-                      <ObjectID xsi:nil="true" />
-                      <CustomerKey>441594C9-78A9-4226-811C-68B474766FC6</CustomerKey>
-                      <Properties>
-                          <Property>
-                              <Name>MemberID</Name>
-                              <Value>1</Value>
-                          </Property>
-                          <Property>
-                              <Name>FirstName</Name>
-                              <Value>Sam</Value>
-                          </Property>
-                          <Property>
-                              <Name>LastName</Name>
-                              <Value>Sample</Value>
-                          </Property>
-                          <Property>
-                              <Name>EmailAddress</Name>
-                              <Value>sam@sample.com</Value>
-                          </Property>
-                      </Properties>
-                  </Object>
-              </Results>
-              <RequestID>b2a52bcd-2a3f-4518-9cd8-3d3ea0e3e356</RequestID>
-              <OverallStatus>OK</OverallStatus>
-          </CreateResponse>
-      </soap:Body>
-  </soap:Envelope>
-  ```
+1. To create a new Automation in Automation Studio, select **Automation Studio** from the **Marketing Automation** menu in Marketing Cloud.
 
-  If you view the Data Extension in the Email app, you will see that the record now appears.
+2. Click the **Create Automation** button in the top right corner of the Automation Studio Interface, select the **Scheduled** type and click **Ok**.
 
-28. We are now ready to fire the Event. This will create a new record in the Events Data Extension from step 5 which is linked to the Customer Data Extension, and in turn the Contact will enter the Interaction. Using the same `accessToken` make the following REST API request:
+3. Name the Automation by clicking on the 'Untitled Automation' field in the top left corner, enter a name and click **Done**.
 
-  ```
-  HOST: https://www.exacttargetapis.com
-  POST /https://www.exacttargetapis.com/contacts/v1/contactEvents
-  Content-Type: application/json
-  Authorization: Bearer insert-access-token-here
+4. Drag a **Fire Event** Activity from the Activities panel the the Automation Canvas.
 
-  {
-      "contactKey": "1",
-      "eventDefinitionKey": "member-update",
-      "data": [{
-          "key": "sausageClubPreferences",
-          "name": "Sausage Club Preferences",
-          "id": "sausage-club-preferences",
-          "items": [{
-              "values": [{
-                  "name": "FavoriteSausage",
-                  "value": "Frankfurter"
-              }]
-          }]
-      }]
-  }
-  ```
+  ![Fire Event in Automation Canvas](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/automation-studio-fire-event.png "Adding a Fire Event to the Automation Canvas") *Adding a Fire Event to the Automation Canvas*
+
+5. Click the **Choose&hellip;** button and select the Data Extension you created earlier in the Data Extensions directory, and click **Done**.
+
+6. Save the Automation by clicking the **Save** button in the top right corner of the Automation interface.
+
+7. Now you can fire the Event. Click the **Run Once** button (next to the Save button). The Automation task will start after a few seconds. You can view the progress from the Activity page by selecting the **Activity** tab.
+
+  ![Review Automation Activities](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/automation-activities.png "Review Activities for an Automation in Automation Studio") *Review Activities for an Automation in Automation Studio*
+
+8. Check that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the records has been set to True by the Update Customer Data Activity in the Interaction.
+
+  ![Updated Data Extension Records](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/updated-data-extension-records.png "Data Extension records updated in Contact Builder") *Data Extension records updated in Contact Builder*
+
+## Firing an Event using the Fuel REST API
+
+to be documented.
+
