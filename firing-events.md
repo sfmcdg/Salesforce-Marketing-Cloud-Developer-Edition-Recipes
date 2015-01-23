@@ -161,5 +161,3 @@ In this next workflow, we will simulate the behavior when a Contact updates thei
 
 9. When you start an Event, you will be returned back to the Data Designer interface. From the constellation view, select the Attribute Group that you previously created and... [done to here]
 
-8. Click on the **Data Designer** tab and select the Attribute Group you created earlier from  
-
