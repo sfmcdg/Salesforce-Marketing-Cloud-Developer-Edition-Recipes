@@ -127,5 +127,39 @@ Now that the Attribute Group has been created and the Interaction is running, we
 
 ## Firing an Event using the Fuel REST API
 
-to be documented.
+Next, we will use the contactEvents REST API method to add Event data to a Data Extension and fire an Interaction for a defined Interaction Trigger. 
+
+An Event comprises of an Event Destination and a linked Data Extension. The Event Destination will be the Attribute Group that we created earlier and we will add serialized Event Data to the linked Data Extension using the contactEvents method.
+
+In this next workflow, we will simulate the behavior when a Contact updates their preference data on an external platform, for example on a website. When this Event occurs, the Contact preference data will be serialized into a Data Extension and the Contact will enter an Interaction.
+
+1. The first step is to define the properties for an Event. Events are created from Data Designer in Contact Builder. Open **Contact Builder** from the Data & Analytics menu and from the dropdown menu on the **Create Attribute Group** button, select **Create New Event**.
+
+2. In the Create New Event dialog, add a unique name in the Name field, assign an event key in the Event Key field and then select the Attribute Group you created earlier. This creates a relationship between the Event and Event Destination.
+
+  ![Create New Event](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/create-new-event.png "Creating a new Event in Contact Builder") *Creating a new Event in Contact Builder*
+
+3. Click **Create** and the Event will be displayed in the Interface. Next we need to create a new Data Extension to contain the serialized Event Data. Click on the **Create New Data Extension** button. This is the preferred method rather than linking to an exisiting Data Extension, as the Data Extension needs to contain additional fields and these are automatically added to the Data Extension when a new Data Extension is created from the Events interface.
+
+4. In the Create New Data Extension dialog, assign a name to the Data Extension. You can optionally complete the additional fields in this step and change the location of the Data Extension. 
+
+  ![Create New Data Extension](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/new-data-extension-for-event.png "Creating a new Data Extension for an Event in Contact Builder") *Creating a new Data Extension for an Event in Contact Builder*
+
+5. Click **Next** twice and add an Attribute (or Attributes) to store the member preference data. You will note that three required Attributes have automatically been added to the Data Extension.
+
+  ![Adding Attributes to an Event Data Extension](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/adding-attributes-for-event.png "Creating Attributes for an Event in Contact Builder") *Creating Attributes for an Event in Contact Builder*
+
+6. Click **Next** and create the relationship between the Contact record and the new Data Extension. In this instance, we will link the two **Contact Key** system generated Attributes.
+
+  ![Creating Event Relationships](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/event-attribute-relationship.png "Creating relationships for an Event in Contact Builder") *Creating relationships for an Event in Contact Builder*
+
+7. Click **Create** and click **OK** in the confirmation dialog. You will now see the relationship between the Contact Record and the linked Data Extension where the Event data will be serialized. 
+
+  ![Event Data Relationships](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/data-relationship-for-event.png "Data relationship for an Event in Contact Builder") *Data relationship for an Event in Contact Builder*
+
+8. You can now start the Event by selecting the **Start Event** button in the top right corner of the interface. Click **Start** in the confirmation dialog.
+
+9. When you start an Event, you will be returned back to the Data Designer interface. From the constellation view, select the Attribute Group that you previously created and... [done to here]
+
+8. Click on the **Data Designer** tab and select the Attribute Group you created earlier from  
 
