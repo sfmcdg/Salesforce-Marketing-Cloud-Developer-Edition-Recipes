@@ -1,5 +1,20 @@
 # Firing Events
 
+## Contents
+1. [Introduction](#Introduction)
+2. [Configuration](#Configuration)
+3. [Configuring a Data Extension](#Configuring a Data Extension)
+4. [Creating an Attribute Group](#Creating an Attribute Group)
+5. [Creating an Interaction](#Creating an Interaction)
+6. [Firing an Event using Automation Studio](#Firing an Event using Automation Studio)
+7. [Firing an Event using the Fuel REST API](#Firing an Event using the Fuel REST API)
+8. [Add Event data for existing Contact and fire Interaction](#Add Event data for existing Contact and fire Interaction)
+9. [Add Event data, create new Contact and fire Interaction](#Add Event data, create new Contact and fire Interaction)
+10. [Add new Contact and fire Interaction](#Add new Contact and fire Interaction)
+11. [Further Information](#Further Information)
+
+## Introduction
+
 An Interaction starts when an Event is fired. The Event will be heard by a Trigger, which prompts the Interaction to begin. Contacts that meet the Contact Filter Criteria defined by the Trigger will enter into the Interaction.
 
 Events can be fired either by using the contactEvents Fuel REST API method or by creating an Automation using Automation Studio. This document explains the steps for using both procedures.
@@ -401,3 +416,10 @@ This request returns the following response
   ```
 
 2. The Contact will be added to the Event Destination and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the new record has been inserted into the Data Extension and the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction.
+
+## Further Information
+
+For more information on Journey Builder development, refer to:
+
+* [Journey Builder Developer's Guide](https://jbdevelopers.guide)
+* [Journey Builder Development on @code](https://code.exacttarget.com/app-development/journey-builder-development/)
