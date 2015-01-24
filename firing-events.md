@@ -25,7 +25,7 @@ A Data Extension can either be managed from within the Email app in Marketing Cl
 
 2. Click the **Next** button twice and in the Attributes step, add the following attributes. These attributes (or Data Extension fields) are for a fictitious membership database.
 
-  |PrimaryKey|Name|Data Type|Data Sources|Required|Length|Default Value|
+  |Primary Key|Name|Data Type|Data Sources|Required|Length|Default Value|
   |----|----|----|----|----|----|----|
   |Yes|EmailAddress|Email Address|Unassigned|Yes|254||
   ||MemberID|Number|Unassigned||||
@@ -71,7 +71,7 @@ Now that the Data Extension and Attribute Group has been created, we will create
 
   ![New Interaction](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/new-interaction.png "New Interaction in the Interaction Canvas") *New Interaction in the Interaction Canvas*
 
-3. Create a new Trigger by clicking on **Select a Trigger...** button, click the **Create Trigger** and click **Next**.
+3. Create a new Trigger by clicking on **Select a Trigger&hellip;** button, click the **Create Trigger** and click **Next**.
 
   ![Create Trigger](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/add-interaction-trigger.png "Adding a Trigger in the Interaction Canvas") *Adding a Trigger in the Interaction Canvas*
 
@@ -103,7 +103,7 @@ Now that the Data Extension and Attribute Group has been created, we will create
 
 Now that the Attribute Group has been created and the Interaction is running, we can fire an Event to start the Interaction. We will use Automation Studio to fire an Event; when records are added to the Data Extension, Interaction Triggers that use the Data Extension as the Event Source will listen for the Event and Contacts that meet the Contact Filter Criteria will enter the Interaction.
 
-1. To create a new Automation in Automation Studio, select **Automation Studio** from the **Marketing Automation** menu in Marketing Cloud.
+1. To create a new Automation in Automation Studio, select **Automation Studio** from the Marketing Automation menu in Marketing Cloud.
 
 2. Click the **Create Automation** button in the top right corner of the Automation Studio Interface, select the **Scheduled** type and click **Ok**.
 
@@ -135,7 +135,7 @@ In this next workflow, we will simulate the behavior when a Contact updates thei
 
 1. The first step is to define the properties for an Event. Events are created from Data Designer in Contact Builder. Open **Contact Builder** from the Data & Analytics menu and from the dropdown menu on the **Create Attribute Group** button, select **Create New Event**.
 
-2. In the Create New Event dialog, add a unique name in the Name field, assign an event key in the Event Key field and then select the Attribute Group you created earlier. This creates a relationship between the Event and Event Destination.
+2. In the Create New Event dialog, add a unique name in the Name field, assign an event key in the Event Key field and then select the Attribute Group you created earlier. This creates a relationship between the Event and Event Destination. Make a note of the event key as this will be used later in the contactEvents method.
 
   ![Create New Event](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/create-new-event.png "Creating a new Event in Contact Builder") *Creating a new Event in Contact Builder*
 
@@ -159,5 +159,130 @@ In this next workflow, we will simulate the behavior when a Contact updates thei
 
 8. You can now start the Event by selecting the **Start Event** button in the top right corner of the interface. Click **Start** in the confirmation dialog.
 
-9. When you start an Event, you will be returned back to the Data Designer interface. From the constellation view, select the Attribute Group that you previously created and... [done to here]
+9. When you start an Event, you will be returned back to the Data Designer interface. From the constellation view, select the Attribute Group that you previously created and click the **View & Edit** button then click **OK** if prompted to confirm changes. You will see that the relationship from the Contact Record has been updated to include the linked Data Extension used by the Event.
 
+  ![Event Data Relationship in an Attribute Group](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/event-data-relationship-in-attribute-group.png "Data relationship of an Event in an Attribute Group") *Data relationship of an Event in an Attribute Group*
+
+10. Before we can fire the Event, we need to add a new record to the Event Destination, as the existing Contacts have already entered the Interaction and will no longer meet the Contact Filter Criteria defined in the Interaction Trigger. Select the **Data Extensions** tab in Contact Builder and then select the first Data Extension you created that is used in the Attribute Group.
+
+11. Click the **Add Record** button and complete the fields. You will note that an eventinstanceid field has automatically been added to the Data Extension. This is used internally, you do not need to add a value to this new field. When you have added a new record click the **Save** button.
+
+  ![Adding a new record](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/adding-new-record-to-data-extension.png "Adding a new record to a Data Extension in Contact Builder") *Adding a new record to a Data Extension in Contact Builder*
+
+12. Now we are ready to simulate posting data from an Event for this new record using the contactEvents method from the Fuel REST API. The Event data will be serialized into the linked Data Extension associated with the Contact and the Contact will enter the Interaction. 
+
+  In order to use this API request, we need to lookup some parameters. The contactEvents method uses an `eventDefinitionKey` key/value pair to define the Event. Select **Journey Builder** from the Marketing Automation menu and click on the **Trigger Administration** link in the top corner of the interface on the Journey Builder Dashboard.
+
+  ![Trigger Administration](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/trigger-administration.png "Trigger Administration in Journey Builder") *Trigger Administration in Journey Builder*
+
+13. Locate the Interaction Trigger associated with the Interaction you created previously, copy the Event Definition Key and paste it into a text file for later use.
+
+14. Locate the Data Extension that you will serialize the Event data into by returning to **Contact Builder** from the Data & Analytics menu and selecting Data Extensions.
+
+15. Select the Data Extension that you created for the Event data, copy the External Key, and paste it into a text file for later use.
+
+  ![Copy Data Extension External Key](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/copy-external-key-data-extension.png "Locating the External Key for a Data Extension") *Locating the External Key for a Data Extension*
+
+16. Before we can make the API request, you will need to create an app in App Center with the required permissions (or edit an existing app to include the permissions). Login to App Center at http://appcenter.exacttarget.com and click the **Create New App** button in the top right corner of the page.
+
+17. Click the **API Integration** template.
+
+18. Complete the Name and Package fields
+
+  ![Defining App Properties](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/app-center-define.png "Defining app properties in App Center") *Defining app properties in App Center*
+
+19. Click **Next** and select a Marketing Cloud user account that the app will use when making API requests. Unless you have purchased a separate Sandbox Account license, select the Production Account option. The 'Link to Account' button opens a new window for defining Marketing Cloud account credentials. If you have previously created an Account reference, you can select it from the Account menu. 
+
+20. Click **Next** and add the permissions required to use the app. You will need to enable the following permissions:
+
+  |Operation|Functional Area|Feature|Permissions|
+  |----|----|----|----|
+  |Data|Data Management|Data Extensions|Read, Write|
+  |Automation|Marketing Automation|Interactions|Execute, Read, Write|
+
+[insert screenshot]
+
+21. Click **Next** to display the Summary page and **Finish** to save the app. Copy the OAuth Client ID and Client Secret on this page and paste into a text file.
+
+  ![Details of an app in App Center](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/app-center-details-tutorial.png "Details of an app in App Center") *Details of an app in App Center*
+
+22. Now you can obtain an OAuth token to use in the contactEvents method. Perform a HTTP POST request specifying your client ID and client secret for the app (obtained from App Center) in the payload. An example request is provided below.
+
+  ```
+  POST https://auth.exacttargetapis.com/v1/requestToken
+  Content-Type: application/json
+  {
+    "clientId": "gyjzvytv7ukqtfn3x2qdyfsn",
+    "clientSecret": "SJbAEenSK2SVBK4d4vBV6NKT"
+  }
+  ```
+
+  This HTTP POST request returns an `accessToken` which is the OAuth token used for subsequent API requests and an `expiresIn` value indicating the expiration period of the OAuth token in seconds. An example response is provided below.
+
+  ```
+  {
+    "accessToken": "4ae36paatp4mnwkhanyhajp4",
+    "expiresIn": 3600
+  }
+  ```
+
+23. We will now use the contactEvents API method to serialize the Event data into the Data Extension linked to the Event and fire an Interaction using the Trigger `eventDefinitionKey`.
+
+This method uses the following key value pairs:
+
+  |Key|Value|
+  |`contactKey`|The Primary address of the Contact|
+  |`contactID`|The Unique ID of the Contact|
+  |`eventDefinitionKey`|String value identifying the event and used to map event data to the data extension.|
+  |`data`|Any related data associated with the event. This data must include the following values:
+key - String value identifying the data extension used to receive the data.
+name - String value providing a human-readable identifier for the data extension used to receive the data.
+id - ExactTarget GUID value used to identify the data extension used to receive the data.
+items - Name and value pairs containing information associated with the event
+
+Now that the Attribute Group has been created and the Interaction is running, we can fire an Event to start the Interaction. We will use Automation Studio to fire an Event; when records are added to the Data Extension, Interaction Triggers that use the Data Extension as the Event Source will listen for the Event and Contacts that meet the Contact Filter Criteria will enter the Interaction.
+
+
+
+|Key
+
+```
+HOST: https://www.exacttargetapis.com
+POST /contacts/v1/contactEvents
+Content-Type: application/json
+Authorization: Bearer insert-accessToken-here
+
+{
+    "contactKey": "susan@sausage.com",
+    "eventDefinitionKey": "update-preferences",
+    "data": [{
+        "key": "MemberPreferences",
+        "name": "Member Preferences",
+        "id": "6160D1B6-54CB-4CD6-BE17-F5BBD496919A",
+        "items": [{
+            "values": [{
+                "name": "FavoriteSausage",
+                "value": "frankfurter"
+            }]
+        }]
+    }]
+}
+```
+
+Use the `accessToken` value obtained from the Fuel Authentication Service as an Authorization Bearer parameter in the request header for the contactEvent method as 
+
+
+
+18. Note OAuth
+
+19. requesttoken
+
+20. make API request
+
+
+
+CONTACT-EVENT-ca19a386-581f-2a57-4489-02b7db730c54
+
+
+
+6160D1B6-54CB-4CD6-BE17-F5BBD496919A
