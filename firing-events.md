@@ -230,7 +230,7 @@ In this next workflow, we will simulate the behavior when an existing Contact up
 
 20. We will now use the contactEvents API method to serialize the Event data into the Data Extension linked to the Event and fire an Interaction using the Trigger `eventDefinitionKey`.
 
-This method uses the following key value pairs:
+  This method uses the following key value pairs:
 
   |Key|Value|
   |----|----|
