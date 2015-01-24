@@ -8,9 +8,9 @@
   * [Creating an Interaction](#Creating-an-Interaction)
 * [Firing an Event using Automation Studio](#Firing-an-Event-using-Automation-Studio)
 * [Firing an Event using the Fuel REST API](#Firing-an-Event-using-the-Fuel-REST-API)
-    * [Add Event data for existing Contact and fire Interaction](#Add-Event-data-for-existing-Contact-and-fire-Interaction)
-    * [Add Event data, create new Contact and fire Interaction](#Add-Event-data-create-new-Contact-and-fire-Interaction)
-    * [Add new Contact and fire Interaction](#Add-new-Contact-and-fire-Interaction)
+  * [Add Event data for existing Contact and fire Interaction](#Add-Event-data-for-existing-Contact-and-fire-Interaction)
+  * [Add Event data, create new Contact and fire Interaction](#Add-Event-data-create-new-Contact-and-fire-Interaction)
+  * [Add new Contact and fire Interaction](#Add-new-Contact-and-fire-Interaction)
 * [Further Information](#Further-Information)
 
 ## Introduction<a id="Introduction"></a>
@@ -86,17 +86,17 @@ Now that the Data Extension and Attribute Group has been created, we will create
 
   ![New Interaction](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/new-interaction.png "New Interaction in the Interaction Canvas") *New Interaction in the Interaction Canvas*
 
-3. Create a new Trigger by clicking on **Select a Trigger&hellip;** button, click the **Create Trigger** and click **Next**.
+3. Create a new Trigger by clicking on the **Select a Trigger&hellip;** button, click the **Create Trigger** panel and click **Next**.
 
   ![Create Trigger](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/add-interaction-trigger.png "Adding a Trigger in the Interaction Canvas") *Adding a Trigger in the Interaction Canvas*
 
 4. Create a name for the Trigger in the **Add Name** field.
 
-5. Click **Choose Data Extension** and select the Data Extension you created earlier.
+5. Click the **Choose Data Extension** button and select the Data Extension you created earlier.
 
 6. Give the Trigger a name in the **Add Name** field. 
 
-7. Select the Attribute Group from the Atrributes list and drag the 'Updated' Atrribute to the Expression Editor. Change the value to **Is False**.
+7. Select the Attribute Group from the Atrributes list and drag the 'Updated' Atrribute to the Expression Editor. Change the expression value to **Is False**.
 
   ![Configuring an Interaction Trigger](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/configuring-interaction-trigger.png "Configuring an Interaction Trigger in the Interaction Canvas") *Configuring an Interaction Trigger in the Interaction Canvas*
 
