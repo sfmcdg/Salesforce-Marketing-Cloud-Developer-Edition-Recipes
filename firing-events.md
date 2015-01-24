@@ -8,9 +8,9 @@
   * [Creating an Interaction](#Creating-an-Interaction)
 * [Firing an Event using Automation Studio](#Firing-an-Event-using-Automation-Studio)
 * [Firing an Event using the Fuel REST API](#Firing-an-Event-using-the-Fuel-REST-API)
-  * [Add Event data for existing Contact and fire Interaction](#Add-Event-data-for-existing-Contact-and-fire-Interaction)
-  * [Add Event data, create new Contact and fire Interaction](#Add-Event-data-create-new-Contact-and-fire-Interaction)
-  * [Add new Contact and fire Interaction](#Add-new-Contact-and-fire-Interaction)
+  * [Add Event data for existing Contact and fire an Interaction](#Add-Event-data-for-existing-Contact-and-fire-Interaction)
+  * [Add Event data, create new Contact and fire an Interaction](#Add-Event-data-create-new-Contact-and-fire-Interaction)
+  * [Add new Contact and fire an Interaction](#Add-new-Contact-and-fire-Interaction)
 * [Further Information](#Further-Information)
 
 ## Introduction<a id="Introduction"></a>
@@ -136,7 +136,7 @@ Now that the Attribute Group has been created and the Interaction is running, we
 
   ![Review Automation Activities](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/automation-activities.png "Review Activities for an Automation in Automation Studio") *Review Activities for an Automation in Automation Studio*
 
-8. Check that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the records has been set to True by the Update Customer Data Activity in the Interaction. It may take a few minutes for the Interaction Trigger to hear the Event, so if the fields are not updated, check again later.
+8. Check that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the records has been set to 'True' by the Update Customer Data Activity in the Interaction. It may take a few minutes for the Interaction Trigger to hear the Event, so if the fields are not updated, check again later.
 
   ![Updated Data Extension Records](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/updated-data-extension-records.png "Data Extension records updated in Contact Builder") *Data Extension records updated in Contact Builder*
 
@@ -146,13 +146,13 @@ Next, we will use the contactEvents REST API method to add Event data to a Data 
 
 There are three different scenarios for using this API method:
 
-* Add Event data for existing Contact and fire Interaction
-* Add Event data, create new Contact and fire Interaction
-* Add new Contact and fire Interaction
+* Add Event data for existing Contact and fire an Interaction
+* Add Event data, create new Contact and fire an Interaction
+* Add new Contact and fire an Interaction
 
 The steps to complete each of these scenarios is detailed below.
 
-### Add Event data for existing Contact and fire Interaction<a id="Add-Event-data-for-existing-Contact-and-fire-Interaction"></a>
+### Add Event data for existing Contact and fire an Interaction<a id="Add-Event-data-for-existing-Contact-and-fire-Interaction"></a>
 
 An Event comprises of an Event Destination and a linked Data Extension. The Event Destination will be the Attribute Group that we created earlier and we will add serialized Event Data to the linked Data Extension using the contactEvents method.
 
@@ -295,7 +295,7 @@ This request returns the following response
 
 21. The Event data will be added to the Data Extension linked to the Event and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction. Also, the serialized event data should appear in the Data Extension linked to the Event.
 
-### Add Event data, create new Contact and fire Interaction<a id="Add-Event-data-create-new-Contact-and-fire-Interaction"></a>
+### Add Event data, create new Contact and fire an Interaction<a id="Add-Event-data-create-new-Contact-and-fire-Interaction"></a>
 
 Assuming you have already created an Event as detailed in the previous section, the contactEvents method is similar, but this time we are adding records to two Data Extensions; the Data Extension linked to the Event and the Data Extension used as the Event Destination. The additional steps required are detailed below.
 
@@ -366,7 +366,7 @@ This request returns the following response
 
 3. The Event data will be added to the Data Extension linked to the Event, the Contact will be added to the Event Destination and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the new record has been inserted into the Data Extension and the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction. Also, the serialized event data should appear in the Data Extension linked to the Event.
 
-## Add new Contact and fire Interaction<a id="Add-new-Contact-and-fire-Interaction"></a>
+## Add new Contact and fire an Interaction<a id="Add-new-Contact-and-fire-Interaction"></a>
 
 In this third scenario, we will not add Event data, but instead include add a record to the Event Destination Data Extension and fire the Interaction. 
 
