@@ -237,7 +237,7 @@ This method uses the following key value pairs:
   |`contactKey`|The Contact Key for the Contact Record (that was created in the Attribute Group relationship)|
   |`contactID`|The Contact ID for the Contact Record (if it was created in the Attribute Group relationship)|
   |`eventDefinitionKey`|String value identifying the Event key, used to map Event data to the linked Data Extension.|
-  |`data`|Any related data associated with the event. This data must include the following values:<br />* `key`: The data extension used to receive the data.<br />* `name`: A human-readable identifier for the Data Extension used to receive the data.<br />* `id`: The External Key of the Data Extension used to receive the data.<br />* `items`: Name/value pairs containing information associated with the event|
+
 
   Use the `accessToken` value obtained from the Fuel Authentication Service as an Authorization Bearer parameter in the request header below.
 
