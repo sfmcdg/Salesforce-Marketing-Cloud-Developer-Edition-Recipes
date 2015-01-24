@@ -129,9 +129,19 @@ Now that the Attribute Group has been created and the Interaction is running, we
 
 Next, we will use the contactEvents REST API method to add Event data to a Data Extension and fire an Interaction for a defined Interaction Trigger. 
 
+There are three different scenarios for using this API method:
+
+* Add Event data for existing Contact and fire Interaction
+* Add Event data, create new Contact and fire Interaction
+* Add new Contact and fire Interaction
+
+The steps to complete each of these scenarios is detailed below.
+
+### Add Event data for existing Contact and fire Interaction
+
 An Event comprises of an Event Destination and a linked Data Extension. The Event Destination will be the Attribute Group that we created earlier and we will add serialized Event Data to the linked Data Extension using the contactEvents method.
 
-In this next workflow, we will simulate the behavior when a Contact updates their preference data on an external platform, for example on a website. When this Event occurs, the Contact preference data will be serialized into a Data Extension and the Contact will enter an Interaction.
+In this next workflow, we will simulate the behavior when an existing Contact updates their preference data on an external platform, for example on a website. When this Event occurs, the Contact preference data will be serialized into a Data Extension and the Contact will enter an Interaction.
 
 1. The first step is to define the properties for an Event. Events are created from Data Designer in Contact Builder. Open **Contact Builder** from the Data & Analytics menu and from the dropdown menu on the **Create Attribute Group** button, select **Create New Event**.
 
@@ -169,44 +179,36 @@ In this next workflow, we will simulate the behavior when a Contact updates thei
 
   ![Adding a new record](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/adding-new-record-to-data-extension.png "Adding a new record to a Data Extension in Contact Builder") *Adding a new record to a Data Extension in Contact Builder*
 
-12. Now we are ready to simulate posting data from an Event for this new record using the contactEvents method from the Fuel REST API. The Event data will be serialized into the linked Data Extension associated with the Contact and the Contact will enter the Interaction. 
+12. Now we are almost ready to simulate posting data from an Event for this new record using the contactEvents method from the Fuel REST API. The Event data will be serialized into the linked Data Extension associated with the Contact and the Contact will enter the Interaction. 
 
-  In order to use this API request, we need to lookup some parameters. The contactEvents method uses an `eventDefinitionKey` key/value pair to define the Event. Select **Journey Builder** from the Marketing Automation menu and click on the **Trigger Administration** link in the top corner of the interface on the Journey Builder Dashboard.
-
-  ![Trigger Administration](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/trigger-administration.png "Trigger Administration in Journey Builder") *Trigger Administration in Journey Builder*
-
-13. Locate the Interaction Trigger associated with the Interaction you created previously, copy the Event Definition Key and paste it into a text file for later use.
-
-14. Locate the Data Extension that you will serialize the Event data into by returning to **Contact Builder** from the Data & Analytics menu and selecting Data Extensions.
-
-15. Select the Data Extension that you created for the Event data, copy the External Key, and paste it into a text file for later use.
+   While in the Data Extensions interface, locate the Data Extension that you will serialize the Event data into by opening the Data Extension that you created for the Event data. Copy the External Key, and paste it into a text file for later use.
 
   ![Copy Data Extension External Key](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/copy-external-key-data-extension.png "Locating the External Key for a Data Extension") *Locating the External Key for a Data Extension*
 
-16. Before we can make the API request, you will need to create an app in App Center with the required permissions (or edit an existing app to include the permissions). Login to App Center at http://appcenter.exacttarget.com and click the **Create New App** button in the top right corner of the page.
+13. Before we can make the API request, you will need to create an app in App Center with the required permissions (or edit an existing app to include the permissions). Login to App Center at http://appcenter.exacttarget.com and click the **Create New App** button in the top right corner of the page.
 
-17. Click the **API Integration** template.
+14. Click the **API Integration** template.
 
-18. Complete the Name and Package fields
+15. Complete the Name and Package fields
 
   ![Defining App Properties](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/app-center-define.png "Defining app properties in App Center") *Defining app properties in App Center*
 
-19. Click **Next** and select a Marketing Cloud user account that the app will use when making API requests. Unless you have purchased a separate Sandbox Account license, select the Production Account option. The 'Link to Account' button opens a new window for defining Marketing Cloud account credentials. If you have previously created an Account reference, you can select it from the Account menu. 
+16. Click **Next** and select a Marketing Cloud user account that the app will use when making API requests. Unless you have purchased a separate Sandbox Account license, select the Production Account option. The 'Link to Account' button opens a new window for defining Marketing Cloud account credentials. If you have previously created an Account reference, you can select it from the Account menu. 
 
-20. Click **Next** and add the permissions required to use the app. You will need to enable the following permissions:
+17. Click **Next** and add the permissions required to use the app. You will need to enable the following permissions:
 
   |Operation|Functional Area|Feature|Permissions|
   |----|----|----|----|
   |Data|Data Management|Data Extensions|Read, Write|
   |Automation|Marketing Automation|Interactions|Execute, Read, Write|
 
-[insert screenshot]
+  ![Defining App Properties](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/app-center-define.png "Defining app properties in App Center") *Defining app properties in App Center*
 
-21. Click **Next** to display the Summary page and **Finish** to save the app. Copy the OAuth Client ID and Client Secret on this page and paste into a text file.
+18. Click **Next** to display the Summary page and **Finish** to save the app. Copy the OAuth Client ID and Client Secret on this page and paste into a text file.
 
   ![Details of an app in App Center](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/app-center-details-tutorial.png "Details of an app in App Center") *Details of an app in App Center*
 
-22. Now you can obtain an OAuth token to use in the contactEvents method. Perform a HTTP POST request specifying your client ID and client secret for the app (obtained from App Center) in the payload. An example request is provided below.
+19. Now you can obtain an OAuth token to use in the contactEvents method. Perform a HTTP POST request specifying your client ID and client secret for the app (obtained from App Center) in the payload. An example request is provided below.
 
   ```
   POST https://auth.exacttargetapis.com/v1/requestToken
@@ -226,63 +228,179 @@ In this next workflow, we will simulate the behavior when a Contact updates thei
   }
   ```
 
-23. We will now use the contactEvents API method to serialize the Event data into the Data Extension linked to the Event and fire an Interaction using the Trigger `eventDefinitionKey`.
+20. We will now use the contactEvents API method to serialize the Event data into the Data Extension linked to the Event and fire an Interaction using the Trigger `eventDefinitionKey`.
 
 This method uses the following key value pairs:
 
   |Key|Value|
-  |`contactKey`|The Primary address of the Contact|
-  |`contactID`|The Unique ID of the Contact|
-  |`eventDefinitionKey`|String value identifying the event and used to map event data to the data extension.|
+  |`contactKey`|The Contact Key for the Contact Record (that was created in the Attribute Group relationship)|
+  |`contactID`|The Contact ID for the Contact Record (if it was created in the Attribute Group relationship)|
+  |`eventDefinitionKey`|String value identifying the Event key, used to map Event data to the linked Data Extension.|
   |`data`|Any related data associated with the event. This data must include the following values:
-key - String value identifying the data extension used to receive the data.
-name - String value providing a human-readable identifier for the data extension used to receive the data.
-id - ExactTarget GUID value used to identify the data extension used to receive the data.
-items - Name and value pairs containing information associated with the event
+  * `key`: The data extension used to receive the data.
+  * `name`: A human-readable identifier for the Data Extension used to receive the data.
+  * `id`: The External Key of the Data Extension used to receive the data.
+  * `items`: Name/value pairs containing information associated with the event|
 
-Now that the Attribute Group has been created and the Interaction is running, we can fire an Event to start the Interaction. We will use Automation Studio to fire an Event; when records are added to the Data Extension, Interaction Triggers that use the Data Extension as the Event Source will listen for the Event and Contacts that meet the Contact Filter Criteria will enter the Interaction.
+  Use the `accessToken` value obtained from the Fuel Authentication Service as an Authorization Bearer parameter in the request header below.
 
+  The `eventDefinitionKey` value is the Event key you added in step 2.
 
+  The `ContactKey` value will be the ContactKey of the new record we created in the Event Destination Data Extension earlier.
 
-|Key
+  The Data Extension used to receive the data is the linked Data Extension for the Event. Add the Data Extension name as the `name` value, external key as `id` value and create a unique `key` value. An example request is provided below.
 
-```
-HOST: https://www.exacttargetapis.com
-POST /contacts/v1/contactEvents
-Content-Type: application/json
-Authorization: Bearer insert-accessToken-here
+  ```
+  HOST: https://www.exacttargetapis.com
+  POST /contacts/v1/contactEvents
+  Content-Type: application/json
+  Authorization: Bearer insert-accessToken-here
 
-{
-    "contactKey": "susan@sausage.com",
-    "eventDefinitionKey": "update-preferences",
-    "data": [{
-        "key": "MemberPreferences",
-        "name": "Member Preferences",
-        "id": "6160D1B6-54CB-4CD6-BE17-F5BBD496919A",
-        "items": [{
-            "values": [{
-                "name": "FavoriteSausage",
-                "value": "frankfurter"
-            }]
-        }]
-    }]
-}
-```
+  {
+      "contactKey": "susan@sausage.com",
+      "eventDefinitionKey": "update-preferences",
+      "data": [{
+          "key": "MemberPreferences",
+          "name": "Member Preferences",
+          "id": "6160D1B6-54CB-4CD6-BE17-F5BBD496919A",
+          "items": [{
+              "values": [{
+                  "name": "FavoriteSausage",
+                  "value": "frankfurter"
+              }]
+          }]
+      }]
+  }
+  ```
 
-Use the `accessToken` value obtained from the Fuel Authentication Service as an Authorization Bearer parameter in the request header for the contactEvent method as 
+This request returns the following response
 
+  ```
+  {
+      insert here once I get this method to actually work
+  }
+  ```
 
+21. The Event data will be added to the Data Extension linked to the Event and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction. Also, the serialized event data should appear in the Data Extension linked to the Event.
 
-18. Note OAuth
+### Add Event data, create new Contact and fire Interaction
 
-19. requesttoken
+Assuming you have already created an Event as detailed in the previous section, the contactEvents method is similar, but this time we are adding records to two Data Extensions; the Data Extension linked to the Event and the Data Extension used as the Event Destination. The additional steps required are detailed below.
 
-20. make API request
+1. Locate the External Key of the Data Extension used as the Event Destination &mdash; this is the Data Extension you created in the Configuring a Data Extension section. Select the **Data Extensions** tab in Contact Builder, select the Data Extension and copy the External Key.
 
+2. Create a new data object for the Event Destination Data Extension in the `data` array using the Data Extension name as the `name` value, external key as `id` value and create a unique `key` value. 
 
+  As the Contact does not already exist, the `contactKey` should need to be included in the payload, but you will need to include a matching `ContactKey` name/value pair for the Event data object for it to relate to the Event Destination.
 
-CONTACT-EVENT-ca19a386-581f-2a57-4489-02b7db730c54
+  An example request is provided below.
 
+  ```
+  HOST: https://www.exacttargetapis.com
+  POST /contacts/v1/contactEvents
+  Content-Type: application/json
+  Authorization: Bearer insert-accessToken-here
 
+  {
+      "eventDefinitionKey": "update-preferences",
+      "data": [{
+          "key": "MemberPreferences",
+          "name": "Member Preferences",
+          "id": "6160D1B6-54CB-4CD6-BE17-F5BBD496919A",
+          "items": [{
+              "values": [{
+                  "name": "FavoriteSausage",
+                  "value": "frankfurter"
+                  },
+                  {
+                  "name": "ContactKey",
+                  "value": "sam@sausage.com"
+                  }]
+              }]
+          },
+          {
+          "key": "SausageClubMembers",
+          "name": "Sausage Club Members",
+          "id": "872B2E1B-0368-4457-895F-986EC1A859BC",
+          "items": [{
+              "values": [{
+                  "name": "EmailAddress",
+                  "value": "sam@sausage.com"
+                  },
+                  {
+                  "name": "MemberID",
+                  "value": 5
+                  },
+                  {
+                  "name": "FirstName",
+                  "value": "Sam"
+                  },
+                  {
+                  "name": "LastName",
+                  "value": "Sample"
+                  }]
+          }]
+     }]
+  }
+  ```
 
-6160D1B6-54CB-4CD6-BE17-F5BBD496919A
+This request returns the following response
+
+  ```
+  {
+      insert here once I get this method to actually work
+  }
+  ```
+
+3. The Event data will be added to the Data Extension linked to the Event, the Contact will be added to the Event Destination and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the new record has been inserted into the Data Extension and the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction. Also, the serialized event data should appear in the Data Extension linked to the Event.
+
+## Add new Contact and fire Interaction
+
+In this third scenario, we will not add Event data, but instead include add a record to the Event Destination Data Extension and fire the Interaction. 
+
+1. Using the ContactEvents method from the previous request, omit the data object used for the data Event. An example request is provided below.
+
+  ```
+  HOST: https://www.exacttargetapis.com
+  POST /contacts/v1/contactEvents
+  Content-Type: application/json
+  Authorization: Bearer insert-accessToken-here
+
+  {
+  {
+      "eventDefinitionKey": "update-preferences",
+      "data": [{
+          "key": "SausageClubMembers",
+          "name": "Sausage Club Members",
+          "id": "872B2E1B-0368-4457-895F-986EC1A859BC",
+          "items": [{
+              "values": [{
+                  "name": "EmailAddress",
+                  "value": "saskia@sausage.com"
+                  },
+                  {
+                  "name": "MemberID",
+                  "value": 6
+                  },
+                  {
+                  "name": "FirstName",
+                  "value": "Saskia"
+                  },
+                  {
+                  "name": "LastName",
+                  "value": "Sausage"
+                  }]
+          }]
+     }]
+  }
+  ```
+
+This request returns the following response
+
+  ```
+  {
+      insert here once I get this method to actually work
+  }
+  ```
+
+2. The Contact will be added to the Event Destination and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the new record has been inserted into the Data Extension and the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction.
