@@ -1,17 +1,17 @@
 # Firing Events
 
 ## Contents
-1. [Introduction](#Introduction)
-2. [Configuration](#Configuration)
-    1. [Configuring a Data Extension](#Configuring-a-Data-Extension)
-    2. [Creating an Attribute Group](#Creating-an-Attribute Group)
-    3. [Creating an Interaction](#Creating-an-Interaction)
-3. [Firing an Event using Automation Studio](#Firing-an-Event-using-Automation-Studio)
-4. [Firing an Event using the Fuel REST API](#Firing-an-Event-using-the-Fuel-REST-API)
-    1. [Add Event data for existing Contact and fire Interaction](#Add-Event-data-for-existing-Contact-and-fire-Interaction)
-    2. [Add Event data, create new Contact and fire Interaction](#Add-Event-data-create-new-Contact-and-fire-Interaction)
-    3. [Add new Contact and fire Interaction](#Add-new-Contact-and-fire-Interaction)
-5. [Further Information](#Further-Information)
+* [Introduction](#Introduction)
+* [Configuration](#Configuration)
+  * [Configuring a Data Extension](#Configuring-a-Data-Extension)
+  * [Creating an Attribute Group](#Creating-an-Attribute Group)
+  * [Creating an Interaction](#Creating-an-Interaction)
+* [Firing an Event using Automation Studio](#Firing-an-Event-using-Automation-Studio)
+* [Firing an Event using the Fuel REST API](#Firing-an-Event-using-the-Fuel-REST-API)
+    * [Add Event data for existing Contact and fire Interaction](#Add-Event-data-for-existing-Contact-and-fire-Interaction)
+    * [Add Event data, create new Contact and fire Interaction](#Add-Event-data-create-new-Contact-and-fire-Interaction)
+    * [Add new Contact and fire Interaction](#Add-new-Contact-and-fire-Interaction)
+* [Further Information](#Further-Information)
 
 ## Introduction<a id="Introduction"></a>
 
