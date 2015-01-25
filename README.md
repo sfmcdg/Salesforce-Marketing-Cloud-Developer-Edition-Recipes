@@ -1,21 +1,20 @@
+# Salesforce Marketing Cloud Developer Edition Recipes
 
-#Salesforce Marketing Cloud Developer Edition Recipes
+A recipe is a set of instructions that uses ingredients and a method to describe how to prepare or make something. This repository contains a series of recipies that you can use to get started with Marketing Cloud development.
 
-> Salesforce Marketing Cloud Developer Edition Recipes for Sharing
+## Recipes
 
-## Getting Started Recipes
+The following recipes are currently available:
 
-###Start your journey
+* [Authentication with Marketing Cloud](authentication.md)
+* [Sending an email with Journey Builder](step-by-step-guide-to-sending-an-email-with-journey-builder.md)
+* [Firing Events in Journey Builder Interactions](firing-events.md)
 
-**Recipe 1 - Setup an account** - Signup for a free [Marketing Cloud Developer Edition account](https://code.exacttarget.com/developer-edition/) and have a look around. When you confirm your email you will receive a **thank you for signing up and welcome email** that contains helpful links for getting started and finding information.
+## Topics
 
-**Recipe 2 - Send an email** - Visit [step by step guide to sending an email](step-by-step-guide-to-sending-an-email-with-journey-builder.md) to learn about how to send an email.
+Recipes will explore working with AMPScript, MobilePush development, Journey Builder integration and other functional areas in Salesforce Marketing Cloud. Each recipe is authored with simplicity in mind; whether you are an accomplished Marketing Cloud developer or aspire to be one, recipes are documented in using a language that is easy to understand.
 
-## More recipes coming soon ...
-
-Recipes will discuss stuff like ... doing queries and exploring what can be done with the Marketing Cloud APIs. Where possible I will try and keep all language easy to understand.
-
-## Do you have a question, something to share or want to find out more?
+## Contributing
 
 Do you have a question or something to share? feel free to [comment](https://github.com/mattcam/Salesforce-Marketing-Cloud-Developer-Edition-Recipes/issues/new) and I will do my very best to help.
 
@@ -23,4 +22,14 @@ Have you got a great developer recipe for the Salesforce Marketing Cloud? share 
 
 To learn more and have a chat about recipes join [Salesforce Marketing Cloud Melbourne Developers Group](http://www.meetup.com/Salesforce-Marketing-Cloud-Melbourne-Developers-Group/).
 
-Please share if you found this page helpful and thanks for visiting. 
+Please star this repo if you find it helpful and feel free to share. 
+
+Thanks for visiting. 
+
+## Contributors
+
+|Major Contributors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | |
+|:----|----:|
+|Matt Cameron |[![@mattcameron on Twitter](https://raw.githubusercontent.com/ExactTarget/fuelux/gh-pages/invertobird-sm.png)](http://twitter.com/mattcameron) [![mattcam on Github](https://raw.githubusercontent.com/ExactTarget/fuelux/gh-pages/invertocat-sm.png)](http://github.com/mattcam) |
+|Eliot Harper | [![@eliotharper on Twitter](https://raw.githubusercontent.com/ExactTarget/fuelux/gh-pages/invertobird-sm.png)](http://twitter.com/eliotharper) [![eliotharper on Github](https://raw.githubusercontent.com/ExactTarget/fuelux/gh-pages/invertocat-sm.png)](http://github.com/eliotharper)|
+
