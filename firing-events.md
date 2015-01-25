@@ -100,19 +100,19 @@ Now that the Data Extension and Attribute Group has been created, we will create
 
   ![Configuring an Interaction Trigger](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/configuring-interaction-trigger.png "Configuring an Interaction Trigger in the Interaction Canvas") *Configuring an Interaction Trigger in the Interaction Canvas*
 
-7. Click **Next** twice, then click **Done** to close the Interaction Trigger dialog.
+8. Click **Next** twice, then click **Done** to close the Interaction Trigger dialog.
 
-8. Next we are going to add an Update Customer Data Activity so when a Contact enters the Interaction, we will immediately update the 'Updated' field in the Data Extension.
+9. Next we are going to add an Update Customer Data Activity so when a Contact enters the Interaction, we will immediately update the 'Updated' field in the Data Extension.
 
   Drag the **Update Customer Data** Activity from the Activities panel to the 'Day 0' swim lane in the Interaction Canvas, move your cursor over the Activity and click **Configure**.
 
-9. In the Update Contact Data dialog, select the Data Extension that you created earlier and click **Next**.
+10. In the Update Contact Data dialog, select the Data Extension that you created earlier and click **Next**.
 
-10. Select the **Updated** Atrribute from the Attribute Set menu and set the value to **True**, then click **Done**.
+11. Select the **Updated** Atrribute from the Attribute Set menu and set the value to **True**, then click **Done**.
 
   ![Setting Attribute Value](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/set-update-value-contact-data.png "Setting an Attribute value for an Update Customer Data Activity") *Setting an Attribute value for an Update Customer Data Activity*
 
-11. Now we are ready to publish the Interaction. Click the **Activate** button in the version panel on the top left corner of the Interface, then click **Activate** in the Activate Interaction dialog. The Interaction will be saved and changed to a 'running' state.
+12. Now we are ready to publish the Interaction. Click the **Activate** button in the version panel on the top left corner of the Interface, then click **Activate** in the Activate Interaction dialog. The Interaction will be saved and changed to a 'running' state.
 
 ## Firing an Event using Automation Studio<a id="Firing-an-Event-using-Automation-Studio"></a>
 
