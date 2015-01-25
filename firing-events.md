@@ -28,7 +28,7 @@ Before an Event can be fired, the following tasks must be completed:
 3. Create an Interaction with Trigger and Events
 4. Start the Interaction
 
-In this tutorial we will create a Data Extension for customers and build a simple Interaction to update a field in the Data Extension once the Contact enters the Interaction. The steps to completed these tasks are detailed below.
+In this tutorial, we will create a Data Extension for customers and build a simple Interaction to update a field in the Data Extension once the Contact enters the Interaction. 
 
 ### Configuring a Data Extension<a id="Configuring-a-Data-Extension"></a>
 
