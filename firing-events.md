@@ -112,7 +112,7 @@ Now that the Data Extension and Attribute Group has been created, we will create
 
   ![Setting Attribute Value](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/set-update-value-contact-data.png "Setting an Attribute value for an Update Customer Data Activity") *Setting an Attribute value for an Update Customer Data Activity*
 
-18. Now we are ready to publish the Interaction. Click the **Activate** button in the version panel on the top left corner of the Interface, then click **Activate** in the Activate Interaction dialog. The Interaction will be saved and changed to a 'running' state.
+11. Now we are ready to publish the Interaction. Click the **Activate** button in the version panel on the top left corner of the Interface, then click **Activate** in the Activate Interaction dialog. The Interaction will be saved and changed to a 'running' state.
 
 ## Firing an Event using Automation Studio<a id="Firing-an-Event-using-Automation-Studio"></a>
 
