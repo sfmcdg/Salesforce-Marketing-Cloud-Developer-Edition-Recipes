@@ -12,15 +12,15 @@ The following recipes are currently available:
 
 ## Topics
 
-Recipes will explore working with AMPScript, MobilePush development, Journey Builder integration and other functional areas in Salesforce Marketing Cloud. Each recipe is authored with simplicity in mind; whether you are an accomplished Marketing Cloud developer or aspire to be one, recipes are documented in using a language that is easy to understand.
+Recipes will explore working with AMPScript, MobilePush development, Journey Builder integration and other functional areas in Salesforce Marketing Cloud. Each recipe is authored with simplicity in mind &mdash; whether you are an accomplished Marketing Cloud developer or aspire to be one, recipes are documented using a language that is easy to understand.
 
 ## Contributing
 
 Do you have a question or something to share? feel free to [comment](https://github.com/mattcam/Salesforce-Marketing-Cloud-Developer-Edition-Recipes/issues/new) and I will do my very best to help.
 
-Have you got a great developer recipe for the Salesforce Marketing Cloud? share the link on twitter using the hashtags [#Salesforce #MarketingCloud #Developer #Recipe](https://twitter.com/search?f=realtime&q=%23Salesforce%20%23MarketingCloud%20%23Developer%20%23Recipe)
+Have you got a great developer recipe for Salesforce Marketing Cloud? share on Twitter using hashtags [#Salesforce #MarketingCloud #Developer #Recipe](https://twitter.com/search?f=realtime&q=%23Salesforce%20%23MarketingCloud%20%23Developer%20%23Recipe)
 
-To learn more and have a chat about recipes join [Salesforce Marketing Cloud Melbourne Developers Group](http://www.meetup.com/Salesforce-Marketing-Cloud-Melbourne-Developers-Group/).
+To learn more and discuss recipes, please consider joining [Salesforce Marketing Cloud Melbourne Developers Group](http://www.meetup.com/Salesforce-Marketing-Cloud-Melbourne-Developers-Group/).
 
 Please star this repo if you find it helpful and feel free to share. 
 
