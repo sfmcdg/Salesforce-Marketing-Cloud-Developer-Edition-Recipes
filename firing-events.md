@@ -116,7 +116,7 @@ Now that the Data Extension and Attribute Group has been created, we will create
 
 ## Firing an Event using Automation Studio<a id="Firing-an-Event-using-Automation-Studio"></a>
 
-Now that the Attribute Group has been created and the Interaction is running, we can fire an Event to start the Interaction. We will use Automation Studio to fire an Event; when records are added to the Data Extension, Interaction Triggers that use the Data Extension as the Event Source will listen for the Event and Contacts that meet the Contact Filter Criteria will enter the Interaction.
+Now that the Attribute Group has been created and the Interaction is running, we can fire an Event to allow Contacts to enter the Interaction. We will use Automation Studio to fire an Event; when records are added to the Data Extension and the Automation runs, Interaction Triggers using the Data Extension as the Event Source will listen for the Event and Contacts that meet the Contact Filter Criteria will enter the Interaction.
 
 1. To create a new Automation in Automation Studio, select **Automation Studio** from the Marketing Automation menu in Marketing Cloud.
 
@@ -136,15 +136,15 @@ Now that the Attribute Group has been created and the Interaction is running, we
 
   ![Review Automation Activities](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/automation-activities.png "Review Activities for an Automation in Automation Studio") *Review Activities for an Automation in Automation Studio*
 
-8. Check that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the records has been set to 'True' by the Update Customer Data Activity in the Interaction. It may take a few minutes for the Interaction Trigger to hear the Event, so if the fields are not updated, check again later.
+8. Check that the Interaction completed successfully by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the records has been set to 'True' by the Update Customer Data Activity in the Interaction. It may take a few minutes for the Interaction Trigger to hear the Event, so if the fields are not updated, check again later.
 
   ![Updated Data Extension Records](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/updated-data-extension-records.png "Data Extension records updated in Contact Builder") *Data Extension records updated in Contact Builder*
 
 ## Firing an Event using the Fuel REST API<a id="Firing-an-Event-using-the-Fuel-REST-API"></a>
 
-Next, we will use the contactEvents REST API method to add Event data to a Data Extension and fire an Interaction for a defined Interaction Trigger. 
+Next, we will use the contactEvents method from the Fuel REST API to add Event data to a Data Extension and fire an Interaction for a defined Interaction Trigger. 
 
-There are three different scenarios for using this API method:
+There are several different scenarios for using this API method. These include:
 
 * Add Event data for existing Contact and fire an Interaction
 * Add Event data, create new Contact and fire an Interaction
@@ -156,15 +156,15 @@ The steps to complete each of these scenarios is detailed below.
 
 An Event comprises of an Event Destination and a linked Data Extension. The Event Destination will be the Attribute Group that we created earlier and we will add serialized Event Data to the linked Data Extension using the contactEvents method.
 
-In this next workflow, we will simulate the behavior when an existing Contact updates their preference data on an external platform, for example on a website. When this Event occurs, the Contact preference data will be serialized into a Data Extension and the Contact will enter an Interaction.
+In this workflow, we will simulate the behavior when an existing Contact updates their preference data on an external platform, for example on a website. When this Event occurs, the Contact preference data will be serialized into a Data Extension and the Contact will enter an Interaction.
 
-1. The first step is to define the properties for an Event. Events are created from Data Designer in Contact Builder. Open **Contact Builder** from the Data & Analytics menu and from the dropdown menu on the **Create Attribute Group** button, select **Create New Event**.
+1. The first step is to define the properties for an Event. Events are created from Data Designer in Contact Builder. Open **Contact Builder** from the Data & Analytics menu, then from the dropdown menu on the **Create Attribute Group** button, select **Create New Event**.
 
 2. In the Create New Event dialog, add a unique name in the Name field, assign an event key in the Event Key field and then select the Attribute Group you created earlier. This creates a relationship between the Event and Event Destination. Make a note of the event key as you will use this later with the contactEvents method.
 
   ![Create New Event](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/create-new-event.png "Creating a new Event in Contact Builder") *Creating a new Event in Contact Builder*
 
-3. Click **Create** and the Event will be displayed in the Interface. Next we need to create a new Data Extension to contain the serialized Event Data. Click on the **Create New Data Extension** button. This is the preferred method rather than linking to an exisiting Data Extension, as the Data Extension needs to contain additional fields and these are automatically added to the Data Extension when a new Data Extension is created from the Events interface.
+3. Click **Create** and the Event will be displayed in the interface. Next we need to create a new Data Extension to contain the serialized Event Data. Click on the **Create New Data Extension** button. This is the preferred method (rather than linking to an exisiting Data Extension), as Data Extensions that are linked to Events needs to contain additional fields and these are automatically added to a Data Extension when a new Data Extension is created from the Events interface.
 
 4. In the Create New Data Extension dialog, assign a name to the Data Extension. You can optionally complete the additional fields in this step and change the location of the Data Extension. 
 
@@ -184,19 +184,19 @@ In this next workflow, we will simulate the behavior when an existing Contact up
 
 8. You can now start the Event by selecting the **Start Event** button in the top right corner of the interface. Click **Start** in the confirmation dialog.
 
-9. When you start an Event, you will be returned back to the Data Designer interface. From the constellation view, select the Attribute Group that you previously created and click the **View & Edit** button then click **OK** if prompted to confirm changes. You will see that the relationship from the Contact Record has been updated to include the linked Data Extension used by the Event.
+9. When you start an Event, you will be returned back to the Data Designer interface. From the constellation view, select the Attribute Group that you previously created and click the **View & Edit** button, then click **OK** if prompted to confirm changes. You will see that the relationship from the Contact Record has been updated to include the linked Data Extension used by the Event.
 
   ![Event Data Relationship in an Attribute Group](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/event-data-relationship-in-attribute-group.png "Data relationship of an Event in an Attribute Group") *Data relationship of an Event in an Attribute Group*
 
-10. Before we can fire the Event, we need to add a new record to the Event Destination, as the existing Contacts have already entered the Interaction and will no longer meet the Contact Filter Criteria defined in the Interaction Trigger. Select the **Data Extensions** tab in Contact Builder and then select the first Data Extension you created that is used in the Attribute Group.
+10. Before we can fire the Event, we need to add a new record to the Event Destination, as the existing Contacts have already entered the Interaction and will no longer meet the Contact Filter Criteria defined in the Interaction Trigger. Select the **Data Extensions** tab in Contact Builder and then select the first Data Extension you created (used in the Attribute Group).
 
-11. Click the **Add Record** button and complete the fields. You will note that an eventinstanceid field has automatically been added to the Data Extension. This is used internally, you do not need to add a value to this new field. When you have added a new record click the **Save** button.
+11. Click the **Add Record** button and complete the fields. You will note that an 'eventinstanceid' field has automatically been added to the Data Extension. This is used internally, you do not need to add a value to this new field. When you have added a new record click the **Save** button.
 
   ![Adding a new record](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/adding-new-record-to-data-extension.png "Adding a new record to a Data Extension in Contact Builder") *Adding a new record to a Data Extension in Contact Builder*
 
 12. Now we are almost ready to simulate posting data from an Event for this new record using the contactEvents method from the Fuel REST API. The Event data will be serialized into the linked Data Extension associated with the Contact and the Contact will enter the Interaction. 
 
-   While in the Data Extensions interface, locate the Data Extension that you will serialize the Event data into by opening the Data Extension that you created for the Event data. Copy the External Key, and paste it into a text file for later use.
+   From the Data Extensions interface, locate the Data Extension that you will serialize the Event data into by opening the Data Extension that you created for the Event data. Copy the External Key, and paste it into a text file for later use.
 
   ![Copy Data Extension External Key](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/copy-external-key-data-extension.png "Locating the External Key for a Data Extension") *Locating the External Key for a Data Extension*
 
@@ -217,7 +217,7 @@ In this next workflow, we will simulate the behavior when an existing Contact up
   |Data|Data Management|Data Extensions|Read, Write|
   |Automation|Marketing Automation|Interactions|Execute, Read, Write|
 
-  ![Defining App Properties](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/app-center-define.png "Defining app properties in App Center") *Defining app properties in App Center*
+  ![Defining App Properties](https://raw.githubusercontent.com/eliotharper/journey-builder-dev-guide/master/images/app-center-properties-tutorial.png "Defining app properties in App Center") *Defining app properties in App Center*
 
 18. Click **Next** to display the Summary page and **Finish** to save the app. Copy the OAuth Client ID and Client Secret on this page and paste into a text file.
 
@@ -252,15 +252,15 @@ In this next workflow, we will simulate the behavior when an existing Contact up
   |`contactKey`|The Contact Key for the Contact Record (that was created in the Attribute Group relationship)|
   |`contactID`|The Contact ID for the Contact Record (if it was created in the Attribute Group relationship)|
   |`eventDefinitionKey`|String value identifying the Event key, used to map Event data to the linked Data Extension.|
-  |`data`|Any related data associated with the event. This data must include the following values:<br />* `key`: The data extension used to receive the data.<br />* `name`: A human-readable identifier for the Data Extension used to receive the data.<br />* `id`: The External Key of the Data Extension used to receive the data.<br />* `items`: Name/value pairs containing information associated with the event|
+  |`data`|Any related data associated with the event. This data must include the following values:<br />`key`: The data extension used to receive the data.<br />`name`: A human-readable identifier for the Data Extension used to receive the data.<br />`id`: The External Key of the Data Extension used to receive the data.<br />`items`: Name/value pairs containing information associated with the event|
 
-  Use the `accessToken` value obtained from the Fuel Authentication Service as an Authorization Bearer parameter in the request header below.
+  Use the `accessToken` value obtained from the Fuel Authentication Service as an Authorization Bearer parameter as per the request header below.
 
   The `eventDefinitionKey` value is the Event key you added in step 2.
 
   The `ContactKey` value will be the ContactKey of the new record we created in the Event Destination Data Extension earlier.
 
-  The Data Extension used to receive the data is the linked Data Extension for the Event. Add the Data Extension name as the `name` value, external key as `id` value and create a unique `key` value. An example request is provided below.
+  The Data Extension used to store the Event data is the linked Data Extension for the Event. Add the Data Extension name as the `name` value, external key as `id` value and create a unique `key` value. An example request is provided below.
 
   ```
   HOST: https://www.exacttargetapis.com
@@ -285,7 +285,7 @@ In this next workflow, we will simulate the behavior when an existing Contact up
   }
   ```
 
-This request returns the following response
+  This request returns the following response.
 
   ```
   {
@@ -293,11 +293,11 @@ This request returns the following response
   }
   ```
 
-21. The Event data will be added to the Data Extension linked to the Event and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction. Also, the serialized event data should appear in the Data Extension linked to the Event.
+21. The Event data will be added to the Data Extension linked to the Event and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the 'Updated' value for the new record has been set to 'True' by the Update Customer Data Activity in the Interaction. Also, the serialized event data should appear in the Data Extension linked to the Event.
 
 ### Add Event data, create new Contact and fire an Interaction<a id="Add-Event-data-create-new-Contact-and-fire-Interaction"></a>
 
-Assuming you have already created an Event as detailed in the previous section, the contactEvents method is similar, but this time we are adding records to two Data Extensions; the Data Extension linked to the Event and the Data Extension used as the Event Destination. The additional steps required are detailed below.
+Assuming you have already created an Event as described in the previous section, the JSON payload used in this contactEvents method is similar, but this time we are adding records to two Data Extensions; the Data Extension linked to the Event and the Data Extension used as the Event Destination. The additional steps required for this scenario are detailed below.
 
 1. Locate the External Key of the Data Extension used as the Event Destination &mdash; this is the Data Extension you created in the Configuring a Data Extension section. Select the **Data Extensions** tab in Contact Builder, select the Data Extension and copy the External Key.
 
@@ -356,7 +356,7 @@ Assuming you have already created an Event as detailed in the previous section, 
   }
   ```
 
-This request returns the following response
+  This request returns the following response.
 
   ```
   {
@@ -364,11 +364,11 @@ This request returns the following response
   }
   ```
 
-3. The Event data will be added to the Data Extension linked to the Event, the Contact will be added to the Event Destination and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the new record has been inserted into the Data Extension and the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction. Also, the serialized event data should appear in the Data Extension linked to the Event.
+3. The Event data will be added to the Data Extension linked to the Event, the record will be added to the Event Destination and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see the new record has been inserted into the Data Extension and the 'Updated' value for the new record has been set to 'True' by the Update Customer Data Activity in the Interaction. Also, the serialized event data should appear in the Data Extension linked to the Event.
 
 ## Add new Contact and fire an Interaction<a id="Add-new-Contact-and-fire-Interaction"></a>
 
-In this third scenario, we will not add Event data, but instead include add a record to the Event Destination Data Extension and fire the Interaction. 
+In this third scenario, we won't create Event data, instead we will add a record to the Event Destination Data Extension and fire the Interaction. 
 
 1. Using the ContactEvents method from the previous request, omit the data object used for the data Event. An example request is provided below.
 
@@ -407,7 +407,7 @@ In this third scenario, we will not add Event data, but instead include add a re
   }
   ```
 
-This request returns the following response
+  This request returns the following response
 
   ```
   {
@@ -415,11 +415,11 @@ This request returns the following response
   }
   ```
 
-2. The Contact will be added to the Event Destination and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the new record has been inserted into the Data Extension and the 'Updated' value for the new record has been set to True by the Update Customer Data Activity in the Interaction.
+2. The Contact will be added to the Event Destination and the Contact will enter the Interaction. You can confirm that the Interaction completed by selecting the **Data Extensions** tab in Contact Builder, select the Data Extension and click on the **Records** tab. You should see that the new record has been inserted into the Data Extension and the 'Updated' value for the new record has been set to 'True' by the Update Customer Data Activity in the Interaction.
 
 ## Further Information<a id="Further-Information"></a>
 
-For more information on Journey Builder development, refer to:
+For more information on Journey Builder development, refer to the following resources:
 
 * [Journey Builder Developer's Guide](https://jbdevelopers.guide)
 * [Journey Builder Development on @code](https://code.exacttarget.com/app-development/journey-builder-development/)
