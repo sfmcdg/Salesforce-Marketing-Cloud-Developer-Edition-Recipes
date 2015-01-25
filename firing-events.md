@@ -15,7 +15,7 @@
 
 ## Introduction<a id="Introduction"></a>
 
-An Interaction starts when an Event is fired. The Event will be heard by a Trigger, which prompts the Interaction to begin. Contacts that meet the Contact Filter Criteria defined by the Trigger will enter into the Interaction.
+An Interaction starts when an Event is fired. The Event will be heard by a Trigger, which prompts the Interaction to begin. Contacts that meet the Contact Filter Criteria defined by the Trigger will enter the Interaction.
 
 Events can be fired either by using the contactEvents Fuel REST API method or by creating an Automation using Automation Studio. This document explains the steps for using both procedures.
 
