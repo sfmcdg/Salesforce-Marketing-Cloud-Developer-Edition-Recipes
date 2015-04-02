@@ -15,7 +15,7 @@
 
 An Interaction starts when an Event is fired. The Event will be heard by a Trigger, which prompts the Interaction to begin. Contacts that meet the Contact Filter Criteria defined by the Trigger will enter the Interaction.
 
-Events can be fired either by using the contactEvents Fuel REST API method or by creating an Automation using Automation Studio. 
+Events can be fired either by using the Fuel REST API, or by creating an Automation using Automation Studio.
 
 This document details the procedural steps for creating a customer Data Extension and building a simple Interaction that updates an Attribute in the Data Extension once the Contact enters the Interaction.
 
@@ -23,15 +23,15 @@ This document details the procedural steps for creating a customer Data Extensio
 
 Before an Event can be fired, the following tasks must be completed:
 
-1. Create Data Extension for customer data
-2. Add records to the Data Extension
-3. Create an Attribute Group
-4. Create an Interaction
-5. Start the Interaction
+1. Create a Data Extension for customer data and add records to it.
+2. Create an Attribute Group.
+3. Create and start an Interaction.
 
 ### Creating a Data Extension<a id="Configuring-a-Data-Extension"></a>
 
 Data Extensions can either be managed from within the Email app in Marketing Cloud, or from within the Contact Builder app. Managing Data Extensions from Contact Builder provides convenience (if you are already in Contact Builder you don't need to open another application) and also provides additional functionality for adding and editing records in the Data Extension.
+
+The steps are as follows.
 
 1&#46; To create a new Data Extension, open Contact Builder from the Data & Analytics menu and select the **Data Extensions** tab. Click **Create** and enter a name for the Data Extension in the Name field. You can optionally complete the other fields in this dialog.
 
