@@ -9,6 +9,7 @@ The following recipes are currently available:
 * [Authentication with Marketing Cloud](authentication.md)
 * [Sending an email with Journey Builder](step-by-step-guide-to-sending-an-email-with-journey-builder.md)
 * [Firing Events in Journey Builder Interactions](firing-events.md)
+* [Starting an Automation](starting-an-automation.md)
 
 ## Topics
 
