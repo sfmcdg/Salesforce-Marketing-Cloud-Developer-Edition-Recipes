@@ -156,6 +156,34 @@ Refer to [Social AMPscript Functions](http://help.exacttarget.com/en/documentati
 
 Refer to [Utilities AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/utilities_ampscript_functions/) for complete list of utility functions. In summary utility functions all include functions that to do calculations, encoding/decoding, logical tests and string formatting/manipulation.
 
+#####Example showing some AMPscript utilities functions functions used in email content
+
+
+```
+
+%%[
+
+/* Example email content showing some of the AMPscript utilities functions. Data extension used for example contains sendable email and name fields. To test copy this code block into email contents and preview.*/
+
+/* Note that for a field to be displayed in content it first must be assigned to an AMPScript variable. */
+
+Var @subscriber_name
+Set @subscriber_name = name
+
+]%%
+
+<table>
+ <tr><th>FUNCTION</th><th>RESULT</th></tr>
+ <tr><td><a href="http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/utilities_ampscript_functions/#Add">Add</a> function applied <code>1 + 2</code></td><td>%%=ADD(1,2)=%%</td></tr>
+ <tr><td>No function applied to <code>@subscriber_name</code> field</td><td>%%=v(@subscriber_name)=%%</td></tr>
+ <tr><td><a href="http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/utilities_ampscript_functions/#Lowercase">LowerCase</a> function applied to <code>@subscriber_name</code> field</td><td>%%=LOWERCASE(@subscriber_name)=%%</td></tr>
+ <tr><td><a href="http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/utilities_ampscript_functions/#ProperCase">ProperCase</a> function applied to <code>@subscriber_name</code> field</td><td>%%=PROPERCASE(@subscriber_name)=%%</td></tr>
+ <tr><td><a href="http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/utilities_ampscript_functions/#Uppercase">UpperCase</a> function applied to <code>@subscriber_name</code> field</td><td>%%=UPPERCASE(@subscriber_name)=%%</td></tr>
+</table>
+
+
+```
+
 ##Helpful AMPScript links and resources
 
 ###AMPScript must reads:
