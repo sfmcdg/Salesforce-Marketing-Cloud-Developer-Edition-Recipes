@@ -126,6 +126,27 @@ Refer to [HTTP AMPscript Functions](http://help.exacttarget.com/en/documentation
 * [URLEncode](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/http_ampscript_functions/#URLEncode) function is used to return a fully encoded URL.
 * [WrapLongURL](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/http_ampscript_functions/#WrapLongURL) function is used to return a wrapped URL that can be used in your send to ensure compatibility with Outlook 2007. For use where URL exceeds 975 characters.
 
+#####Example showing AMPscript HTTPGet HTTP function used in email content
+
+Following is example email content showing AMPscript HTTPGet HTTP function. Data extension used for example contains sendable email. To test copy this code block into email contents and preview.
+
+```
+%%[
+
+/* Example email content showing AMPscript HTTPGet HTTP function. Data extension used for example contains sendable email. */
+
+Var @content
+Set @content = HTTPGet("http://www.example.com/")
+]%%
+
+<table>
+ <tr><th>FUNCTION</th><th>RESULT</th></tr>
+ <tr><td><a href="http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/http_ampscript_functions/#HTTPGet">HTTPGet</a> function applied to <code>http://www.example.com</code></td><td>%%=v(@content)=%%</td></tr>
+</tr>
+</table>
+
+```
+
 ####Microsite and landing page functions
 
 Refer to [Microsite and Landing Page AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/microsite_and_landing_page_ampscript_functions/) for complete list of microsite and landing page functions. In summary functions include:
