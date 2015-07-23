@@ -162,7 +162,7 @@ Refer to [Microsite and Landing Page AMPscript Functions](http://help.exacttarge
 * [Redirect](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/microsite_and_landing_page_ampscript_functions/#Redirect) function redirects the recipient's browser to the specified URL.
 * [RequestParameter](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/microsite_and_landing_page_ampscript_functions/#RequestParameter) function returns the value of a parameter passed into the query string of a landing page URL or passed via a form post.
 
-#####Example showing AMPscript InsertDaa function used in microsite or landing page content
+#####Example showing AMPscript InsertData function used in microsite or landing page content
 
 Following is example of microsite or landing page content showing AMPscript InsertData function. Target data extension used for example requires nameofEvent and timeofEvent fields. To test copy this code block into microsite or landing page content and preview.
 
