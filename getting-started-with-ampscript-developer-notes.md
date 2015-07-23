@@ -158,6 +158,7 @@ Refer to [Utilities AMPscript Functions](http://help.exacttarget.com/en/document
 
 #####Example showing some AMPscript utilities functions functions used in email content
 
+Following is example email content showing some of the AMPscript utilities functions. Data extension used for example contains sendable email and name fields. To test copy this code block into email contents and preview.
 
 ```
 
