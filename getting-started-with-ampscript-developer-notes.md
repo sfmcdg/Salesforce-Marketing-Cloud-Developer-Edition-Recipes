@@ -100,6 +100,7 @@ For a discussion of all data extention functions refer to [Data Extension AMPscr
 #####Example showing AMPscript data functions
 
 * [Example showing how to work with lookup tables (data extension) and selecting fields using IF ELSE logic](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/getting_started_with_ampscript/ampscript_201/)
+* [Example showing how to loop through and conditionally format lookup table (data extension) results](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/getting_started_with_ampscript/ampscript_401/)
 
 ####DateTime functions
 
