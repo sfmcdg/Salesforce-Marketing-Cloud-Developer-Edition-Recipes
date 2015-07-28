@@ -225,6 +225,63 @@ Set @subscriber_name = name
 
 ```
 
+####API AMPscript functions
+
+[API AMPscript functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/) allow AMPscript to work with [objects in the Marketing Cloud API](https://help.exacttarget.com/en/technical_library/web_service_guide/objects/). The Marketing Cloud API objects allow various functionallity of the Marketing Cloud to be controlled programmaticly. Example use cases include sending emails and creating data extensions.
+
+Refer to [API AMPscript functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/) for complete list of API AMPscript functions. These functions do not work in emails at the time of send. In these function map to method and properties used with objects. In summary functions include:
+
+* [AddObjectArrayItem](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#AddObjectArrayItem) used to add item to array.
+* [CreateObject](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#CreateObject) used to service API object.
+* [Field](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#Field) use to return field from object
+* [InvokeCreate](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#InvokeCreate) used to invoke the create method on the API object.
+* [InvokeDelete](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#InvokeDelete) used to invoke the delete method on the API object.
+* [InvokeExecute](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#InvokeExecute) used to invoke the execute method on the API object.
+* [InvokePerform](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#InvokePerform) used to invoke the perform method on the API object.
+* [InvokeRetrieve](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#InvokeRetrieve) used to invoke the retrieve method on the API object.
+* [InvokeUpdate](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#InvokeUpdate) used to invoke the update method on the API object.
+* [RaiseError](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#RaiseError) use to handle errors.
+* [SetObjectProperty](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#SetObjectProperty) used to set a value in the API object.
+
+#####Example showing API AMPscript function to insert a record into a data extension.
+
+Following is example showing how to insert a record into a data extension using an API AMPscript function. In example values will be inserted into the nameofEvent and timeofEvent fields of TargetDE data extension. Note that AMPScript also provides [InsertData](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#InsertData) and [InsertDE](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#InsertDE) for inserting data into a data extension.
+
+
+```
+%%[
+
+/* Create data extension object */
+Set @de = CreateObject("DataExtensionObject")
+SetObjectProperty(@de,"CustomerKey","TargetDE")
+
+/* Create first field to insert into record */
+Set @deProperty_1 = CreateObject("APIProperty")
+SetObjectProperty(@deProperty_1,"Name","nameofEvent")
+SetObjectProperty(@deProperty_1,"Value","OPEN")
+
+/* Create second field to insert into record */
+Set @deProperty_2 = CreateObject("APIProperty")
+SetObjectProperty(@deProperty_2,"Name","timeofEvent")
+SetObjectProperty(@deProperty_2,"Value",NOW())
+
+/* Add fields to record */
+Set @deProperties = CreateObject("APIProperty")
+AddObjectArrayItem(@de,"Properties",@deProperty_1)
+AddObjectArrayItem(@de,"Properties",@deProperty_2)
+
+/* Insert record into data extension object */
+Set @StatCode = InvokeCreate(@de, @StatMessage, @ErrorCode)
+
+/* In production do error check on @StatCode to test success */ 
+
+]%%
+```
+
+#####Links to examples showing API AMPscript functions
+
+* [Creating a Data Extension Using AMPscript and the Web Service API](https://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/using_ampscript_with_the_web_service_api/creating_a_data_extension_using_ampscript_and_the_web_service_api/)
+
 ##Helpful AMPScript links and resources
 
 ###AMPScript must reads:
@@ -238,7 +295,6 @@ Set @subscriber_name = name
 
 >Suggested reads for advanced functionallity.
 
-* [API AMPscript functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/) allow AMPscript to use [objects in the Marketing Cloud API](https://help.exacttarget.com/en/technical_library/web_service_guide/objects/). The Marketing Cloud API objects allow various functionallity of the Marketing Cloud to be controlled programmaticly.
 * [Content AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/) allow for functionallity to work with: [AttachedFile](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#AttachFile) for email attachments, [BarCodeURL](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BarCodeURL) for working with barcodes, [BeginImpressionRegion](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BeginImpressionRegion), [EndImpressionRegion](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#EndImpressionRegion) for working with impression regions, [BuildOptionList](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BuildOptionList) for option lists, content creation from delimetered/XML data with [BuildRowSetFromString](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BuildRowSetFromString) and [BuildRowSetFromXML](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BuildRowSetFromXML) functions, SMS with CreateSmsConversation and EndSmsConversation functions, [GetPortfolioItem](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#GetPortfolioItem) and [Image](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#Image) functions for working with portfolios, [TransformXML](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#TransformXML) for transforming XML items in portfolio and [WAT and WATP](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#WAT) functions for web analytics tracking options. Some of these require additional features enabled in the Marketing Cloud account.
 * [Contacts AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/contacts_ampscript_functions/) takes information sent from mobile devices to Salesforce Marketing Cloud applications and processes it accordingly. Contacts AMPscript functions cannot be used in email messages or SMS messages outside of the MobileConnect app. The contacts AMPscript function is [UpsertContact](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/contacts_ampscript_functions/#UpsertContacts). Function can be used to update a contact from a landing page or from an SMS message.
 
