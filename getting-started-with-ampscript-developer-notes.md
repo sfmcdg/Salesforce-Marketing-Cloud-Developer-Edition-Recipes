@@ -36,6 +36,7 @@ AMPscript has the following language elements:
   * Mobile variables/functions
   * Social functions
   * Utilities functions
+  * API functions
 
 ###Constants
 
