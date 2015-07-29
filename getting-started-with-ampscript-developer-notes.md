@@ -22,7 +22,7 @@ An example of an inline AMPscript function is returning a value, for example `%%
 
 AMPscript has the following language elements:
 
-* Constants
+* [Constants](#constants)
 * Attributes and data extensions
 * Keywords
 * Conditional logic
