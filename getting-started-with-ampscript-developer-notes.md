@@ -24,19 +24,19 @@ AMPscript has the following language elements:
 
 * [Constants](#constants)
 * [Attributes and data extensions](#attributes-and-data-extensions)
-* Keywords
-* Conditional logic
-* Output
-* Comments
+* [Keywords](#keywords)
+* [Conditional logic](#conditional-logic)
+* [Output](#output)
+* [Comments](#comments)
 * Functions
-  * Data modification functions
-  * DateTime functions
-  * HTTP functions
-  * Microsite and landing page functions
-  * Mobile variables/functions
-  * Social functions
-  * Utilities functions
-  * API functions
+  * [Data modification functions](#data-modification-functions)
+  * [DateTime functions](#datetime-functions)
+  * [HTTP functions](#http-functions)
+  * [Microsite and landing page functions](#microsite-and-landing-page-functions)
+  * [Mobile variables/functions](#mobile-variablesfunctions)
+  * [Social functions](#social-functions)
+  * [Utilities functions](#utilities-functions)
+  * [API functions](#api-ampscript-functions)
 
 ###Constants
 
