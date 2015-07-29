@@ -15,6 +15,12 @@ The following recipes are currently available:
 
 Recipes will explore working with AMPScript, MobilePush development, Journey Builder integration and other functional areas in Salesforce Marketing Cloud. Each recipe is authored with simplicity in mind &mdash; whether you are an accomplished Marketing Cloud developer or aspire to be one, recipes are documented using a language that is easy to understand.
 
+## Notes
+
+Notes contain information and links helpful to working with recipes.
+
+* [Getting started AMPScript developer notes](getting-started-with-ampscript-developer-notes.md)
+
 ## Contributing
 
 Do you have a question or something to share? feel free to [comment](https://github.com/mattcam/Salesforce-Marketing-Cloud-Developer-Edition-Recipes/issues/new) and I will do my very best to help.
