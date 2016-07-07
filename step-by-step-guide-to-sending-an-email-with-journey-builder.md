@@ -9,7 +9,7 @@ In this example an email will be sent when a new record is added to the data ext
 1. In **contact builder** create a new **attribute group**. For example use _**DemoConceptRelationships**_ as name of attribute group. 
 2. Start building your **attribute group** by selecting **create new data extension**.
     1. For **data extension name** and **data extension external key** use _**DemoConceptData**_.
-    2. Next then click through to **3 - data extension attributes** and create these fieds:
+    2. Next then click through to **3 - data extension attributes** and create these fields:
         1. _**EmailAddress**_ as primary key with required type **email address**. 
         2. _**Firstname**_ as required **text** (use default text length 50).
         3. _**Log**_ as not required type **text** (use default text length 50).
