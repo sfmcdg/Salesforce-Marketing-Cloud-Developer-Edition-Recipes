@@ -1,4 +1,4 @@
-#Salesforce Marketing Cloud Journey Builder is a tool that can help with teams collaboratively creating customer marketing campaign innovation
+#How Journey Builder helps teams create collaborative innovative marketing campaigns
 
 > Visit [Journey Builder](https://www.salesforce.com/products/marketing-cloud/platform/digital-marketing-optimization/) for information about using Salesforce Marketing Cloud Journey Builder to create journeys across email, mobile, social, advertising and the web.
 
