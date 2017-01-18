@@ -10,9 +10,7 @@ A campaigns in Journey Builder is described as an interaction. Journey Builder i
 
 ###1 - Welcome and Nurturing Customer Journeys
 
-Generally this is where the customer is working through recognition of problem, information search and evaluation of alternative products of the sales process. At this time the marketer will want to welcome the customer and differentiate their product. To enable this the marketer will develop a single view of the customer containing preference, segment and behavioral data that is used to communicate personalised and relevant information.
-
-The **welcome journey** represents a starting point in the relationship that the marketer will have with the customer. At this stage the customer will have signaled the marketer that they are interested in more information. The customer generally starts the welcome process by joining a membership program, completing a form or causing an update to a record in a CRM. After the customer has been welcomed **lead nurturing journeys** can be conducted to learn more about the customer and to help the customer move onto the purchasing stage.
+Generally this is where the customer is working through recognition of problem, information search and evaluation of alternative products of the sales process. At this time the marketer will want to welcome the customer and differentiate their product. To enable this the marketer will develop a single view of the customer containing preference, segment and behavioral data that is used to communicate personalised and relevant information. The **welcome journey** represents a starting point in the relationship that the marketer will have with the customer. At this stage the customer will have signaled the marketer that they are interested in more information. The customer generally starts the welcome process by joining a membership program, completing a form or causing an update to a record in a CRM. After the customer has been welcomed **lead nurturing journeys** can be conducted to learn more about the customer and to help the customer move onto the purchasing stage.
 
 ###2 - Purchase and Offer Customer Journeys
 
@@ -34,11 +32,7 @@ Before starting a Journey Builder interaction data must first be integrated into
 
 ##Journey Builder and Automation Studio Feature Comparison
 
-Both Journey Builder and Automation Studio are campaign automation tools and as such have similarities which allow for the scheduling of activities to communicate with the customer. 
- 
-The main difference is that Journey Builder is a tool that works directly with the contact, whereas Automation Studio is designed to trigger processes that are batched against a collection of records.
-
-The following table provides a summary of differences between Journey Builder and Automation Studio.
+Both Journey Builder and Automation Studio are campaign automation tools and as such have similarities which allow for the scheduling of activities to communicate with the customer. The main difference is that Journey Builder is a tool that works directly with the contact, whereas Automation Studio is designed to trigger processes that are batched against a collection of records. The following table provides a summary of differences between Journey Builder and Automation Studio.
 
 |  | Journey Builder | Automation Studio |
 | -------- | --------------- | ----------------- |
