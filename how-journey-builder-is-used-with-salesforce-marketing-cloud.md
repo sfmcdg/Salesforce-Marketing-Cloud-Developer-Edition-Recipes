@@ -1,10 +1,8 @@
 #How Journey Builder is used with Salesforce Marketing Cloud
 
-Journey Builder is a campaign planning tool that allows for the design and automation of responsive multi-channel campaigns that can be used to help guide customers through each step of their journey with the brand.
-
 > Salesforce Marketing Cloud Journey Builder allows the campaign designer to implement and easily share complex digital marketing requirements. Journey Builder features an easy to use interface that does not require programming.
 
-The Salesforce Marketing Cloud Journey Builder user interface enables teams to easy understand how customer journey campaigns are executed. With this ease of use comes the ability for teams to apply an iterative design process where all parts of the campaign are tested. Gone is the campaign code only understood by programmers.
+Journey Builder is a campaign planning tool that allows for the design and automation of responsive multi-channel campaigns that can be used to help guide customers through each step of their journey with the brand. The Salesforce Marketing Cloud Journey Builder user interface enables teams to easy understand how customer journey campaigns are executed. With this ease of use comes the ability for teams to apply an iterative design process where all parts of the campaign are tested. Gone is the campaign code only understood by programmers.
 
 ##Journey Builder Customer Scenarios
 
