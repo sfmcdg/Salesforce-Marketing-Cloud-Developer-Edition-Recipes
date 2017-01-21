@@ -15,6 +15,16 @@ Contact Builder consists of the following tools:
 * [**Imports**](https://help.marketingcloud.com/en/documentation/contact_builder/imports/) - is used to define an import definition.
 * [**Contact**](https://help.marketingcloud.com/en/documentation/contact_builder/contacts_configuration/) - is used to determine channel send preferences. 
 
+##Data Relationships
+
+When relationships are created in the data design tool the cardinality for the relationship is specified. Options include:
+
+* **One-to-One relationship** - indicates that the data extensions relate to each other on a single primary key. 
+* **Populations** - represent a master set of contacts with in a Marketing Cloud account. Examples of populates in the same for a health care provider could include the following three separate populations: patients; doctors; and insurers. Populations link to the contact model using the primary key with a one-to-one relationship. To aviod performance issues do not create more 3 populations in the data model.
+* **One-to-Many relationship** - is where the primary key linked to the contact model has are multiple items linked to it in another data extension. An example is multiple orders for a contact.
+* **Many-to-Many Relationship ** - is where there are multiple records in the linked data extensions that both contain the same value.
+
+Changes to cardinality change the relationship that data extensions have with one another. When making changes to cardinality review all filtered lists, filters and scheduled sends.
 
 
 ##Links
