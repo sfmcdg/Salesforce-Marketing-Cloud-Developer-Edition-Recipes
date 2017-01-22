@@ -31,14 +31,14 @@ Contact Builder consists of the following tools:
 
 ##Data Relationships
 
-When relationships are created in the data design tool the cardinality for the relationship is specified. Options include:
+When relationships are created in the data design tool the cardinality for the relationship is specified, options include:
 
 * **One-to-One relationship** - indicates that the data extensions relate to each other on a single primary key. 
-* **Populations** - represent a master set of contacts with in a Marketing Cloud account. Examples of populates in the same for a health care provider could include the following three separate populations: patients; doctors; and insurers. Populations link to the contact model using the primary key with a one-to-one relationship. To avoid performance issues do not create more 3 populations in the data model.
-* **One-to-Many relationship** - is where the primary key linked to the contact model has are multiple items linked to it in another data extension. An example is multiple orders for a contact.
-* **Many-to-Many Relationship ** - is where there are multiple records in the linked data extensions that both contain the same value.
+* **Populations** - represent a master set of contacts with in a Marketing Cloud account. An example of using populations is separate a population for each patients, doctors and insurers in a health care provider Marketing Cloud account. Populations link to the contact model using the primary key with a one-to-one relationship. To avoid performance issues do not create more 3 populations in the data model.
+* **One-to-Many relationship** - is where the primary key is linked to multiple items in another data extension. An example is a customer having multiple orders.
+* **Many-to-Many Relationship** - is where there are multiple records in the linked data extensions that both contain the same value.
 
-Changes to cardinality change the relationship that data extensions have with one another. When making changes to cardinality review all filtered lists, filters and scheduled sends.
+Changes to cardinality change the relationship that data extensions have with one another. After making changes to cardinality review all filtered lists, filters and scheduled sends.
 
 ##Links
 
