@@ -16,7 +16,7 @@ In the issue tracker data relationship example, each contact record can have mul
 2. Create or select the contacts data extension.
 3. Link the contacts data extension to customer data object. The relationship between Customers Data and the contacts data extension should be a one-to-one relationship between the `Contact Key` field in the Customers Data object and the PrimaryKey in the contacts data extension.
 4. Create or select the issues data extension.
-5. Link the issues data extension to the contacts data extension. The relationship between the two data extensions should be a one-to-many relationship between the PrimaryKey on the contacts data and the corresponding field on the issues data extension.
+5. Link the issues data extension to the contacts data extension. The relationship between the two data extensions should be a one-to-many relationship between the PrimaryKey on the contacts data extension and the corresponding field on the issues data extension.
 
 ##Contact Builder Tools
 
@@ -34,7 +34,7 @@ Contact Builder consists of the following tools:
 When relationships are created in the data design tool the cardinality for the relationship is specified, options include:
 
 * **One-to-One relationship** - indicates that the data extensions relate to each other on a single primary key. 
-* **Populations** - represent a master set of contacts with in a Marketing Cloud account. An example of using populations is separate a population for each patients, doctors and insurers in a health care provider Marketing Cloud account. Populations link to the contact model using the primary key with a one-to-one relationship. To avoid performance issues do not create more 3 populations in the data model.
+* **Populations** - represent a master set of contacts with in a Marketing Cloud account. An example of using populations is a separate population for each patients, doctors and insurers in a health care provider Marketing Cloud account. Populations link to the contact model using the primary key with a one-to-one relationship. To avoid performance issues do not create more 3 populations in the data model.
 * **One-to-Many relationship** - is where the primary key is linked to multiple items in another data extension. An example is a customer having multiple orders.
 * **Many-to-Many Relationship** - is where there are multiple records in the linked data extensions that both contain the same value.
 
