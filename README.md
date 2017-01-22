@@ -21,6 +21,14 @@ Notes contain information and links helpful to working with recipes.
 
 * [Getting started AMPScript developer notes](getting-started-with-ampscript-developer-notes.md)
 
+## Guides
+
+### Helpful notes for working through preparation for Salesforce Marketing Cloud Consultant exam questions
+
+* [How contact builder is used with Salesforce Marketing Cloud](how-contact-builder-is-used-with-salesforce-marketing-cloud.md)
+* [How Journey Builder is used with Salesforce Marketing Cloud](how-journey-builder-is-used-with-salesforce-marketing-cloud.md)
+* More coming real soon...
+
 ## Contributing
 
 Do you have a question or something to share? feel free to [comment](https://github.com/mattcam/Salesforce-Marketing-Cloud-Developer-Edition-Recipes/issues/new) and I will do my very best to help.
