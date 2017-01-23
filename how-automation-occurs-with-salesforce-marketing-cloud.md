@@ -6,7 +6,7 @@ Automation Studio is a Marketing Cloud application that is used to manage multi-
 
 * **Send email** - used to send emails.
 * **Import file** - used to import a file into a data extension or list.
-* **File transfer** - used to transfer a file from a specified location. The file transfer activity can also unencrypt or uncompress a file.
+* **File transfer** - used to transfer a file from a specified location. The file transfer activity can also be used to unencrypt or uncompress.
 * **Data extract** - used to create a file from a data extension.
 * **SQL query** - used to run a SQL query.
 
