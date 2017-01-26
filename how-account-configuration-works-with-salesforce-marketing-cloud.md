@@ -23,9 +23,9 @@ A [business unit](https://help.marketingcloud.com/en/documentation/exacttarget/e
 
 ##Salesforce Marketing Cloud Reply Mail Management
 
-[placeholder for what is RMM (Reply Mail Management)]
+[RMM (Reply Mail Management)](https://help.marketingcloud.com/en/documentation/exacttarget/admin/reply_mail_management/) allows emails received as replies to campaign sends to be managed. Using RMM Marketing Cloud emails received can automatically be acknowledged and unsubscribe depending on keywords.
 
-[placeholder for how to troubleshoots issues with Reply Mail Management]
+When setting up RMM there is a one-time requirement to specify a reply subdomain, make the appropriate DNS changes and configure RMM as required. Optional setup includes a triggered send and sender profile.
 
 ##Salesforce Marketing Cloud Sender Authentication Package
 
