@@ -10,7 +10,7 @@ Using the high-level requirements listed in the SOW a Functional Specification D
 
 #Branding and Creative Strategies
 
-A branding strategy seeks to interact with the customer that a marketing communication. Design is used to strengthen a and convey a consistent message to the consumer. Tools in the Marketing Cloud that can be employed to help achieve this are:
+A branding strategy seeks to interact with the customer through a marketing communication. Design is used to strengthen a and convey a consistent message. Tools in the Marketing Cloud that can be employed to help achieve this are:
 
 * **Content templates** - to ensure a consist message is communicated.
 * **Approval workflows** - to ensure that only approved communicates are sent.
@@ -18,7 +18,7 @@ A branding strategy seeks to interact with the customer that a marketing communi
 
 For campaigns or customer journeys to be implemented information is required about campaign content and how this relates to data stored in the Marketing Cloud account about the subscriber.
 
-Data integration with external systems includes file load for batch processes, APIs for real-time process and Salesforce connectors for CRM. Using these the Marketing Cloud can use data source inputs from external POS, CRM, e-commerce and data warehouse systems.
+Data integration with external systems includes file load for batch processes, APIs for real-time process and the Salesforce connector for CRM. Using these the Marketing Cloud can use data source inputs from external POS, CRM, e-commerce and data warehouse systems.
 
 Considerations for how a campaign will be implemented include frequency, complexity and volume of sending.
 
