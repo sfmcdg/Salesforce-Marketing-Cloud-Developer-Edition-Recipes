@@ -31,7 +31,7 @@ Notes contain information and links helpful to working with recipes.
 * [How account configuration works with Salesforce Marketing Cloud](how-account-configuration-works-with-salesforce-marketing-cloud.md)
 * [How reporting works with Salesforce Marketing Cloud](how-reporting-works-with-salesforce-marketing-cloud.md)
 * [How data design works with Salesforce Marketing Cloud](how-data-design-works-with-salesforce-marketing-cloud.md)
-* Email build coming soon ...
+* [How emails are built with Salesforce Marketing Cloud](how-emails-are-built-with-salesforce-marketing-cloud.md)
 * [How automation occurs with Salesforce Marketing Cloud](how-automation-occurs-with-salesforce-marketing-cloud.md)
 * [How contact builder is used with Salesforce Marketing Cloud](how-contact-builder-is-used-with-salesforce-marketing-cloud.md)
 * [How Journey Builder is used with Salesforce Marketing Cloud](how-journey-builder-is-used-with-salesforce-marketing-cloud.md)
