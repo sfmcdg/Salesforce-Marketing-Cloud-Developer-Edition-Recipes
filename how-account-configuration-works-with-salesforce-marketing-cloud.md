@@ -29,5 +29,9 @@ When setting up RMM there is a one-time requirement to specify a reply subdomain
 
 ##Salesforce Marketing Cloud Sender Authentication Package
 
-[placeholder for what is SAP (Sender Authentication Package) and how it relates to a business unit, include information about link wrapping, landing pages, image URLs]
+[SAP (Sender Authentication Package)](https://help.marketingcloud.com/en/documentation/exacttarget/content/sender_authentication_package/) allows the Marketing Cloud to send emails on behalf of the business domain name. SAP includes
 
+* **Private Domain** - this allows a domain name to be used to send email. This is the domain used on the email from address. Setup includes includes authenticating email sends using the Sender Policy Framework (SPF) and DomainKeys/DKIM authentication.
+* **Account Branding** - this allows links and image URLs to use references to the authenticated domain.
+* **Dedicated IP Address** - assigns a unique IP address to your account. All email sent from the Marketing Cloud account will use this IP address. IP addresses are part of a successful policy for sender reputation.
+* **RMM** - used to manage replies received from subscribers.
