@@ -2,8 +2,6 @@
 
 Configuration in Salesforce Marketing Cloud is flexible and can be adapted to map closely to business and campaign requirements. When making recommendations a key consideration is user expertise and experience with the platform.
 
-When setting up a Marketing Cloud account there are 2 distinct phases consisting ofcore account configuration and then campaign configuration.
-
 ##Discovery Process
 
 Set-up of the Marketing Cloud account occurs after purchase. At this stage, Salesforce will have provisioned key aspects of the Marketing Cloud account ready for configuration and  the client will have defined a SOW (Statement Of Work) defining a high-level list of what is required, project-specific activities, deliverables, and timelines for a vendor providing services to the client. 
