@@ -26,11 +26,11 @@ Notes contain information and links helpful to working with recipes.
 ### Helpful notes for working through preparation for Salesforce Marketing Cloud Consultant exam questions
 
 * Discovery coming soon ...
-* Conceptual design coming soon ...
+* [How to do discovery with Salesforce Marketing Cloud](how-to-do-discovery-with-salesforce-marketing-cloud.md)
 * Marketing Cloud Connect coming soon ...
 * [How account configuration works with Salesforce Marketing Cloud](how-account-configuration-works-with-salesforce-marketing-cloud.md)
 * [How reporting works with Salesforce Marketing Cloud](how-reporting-works-with-salesforce-marketing-cloud.md)
-* [How data design works with Salesforce Marketing Cloud](how-data-design-works-with-salesforce-marketing-cloud.md)
+* [How data design works with Salesforce Marketing Cloud](how-data-design-works-with-salesforce-marketing-cloud.md)ma
 * Email build coming soon ...
 * [How automation occurs with Salesforce Marketing Cloud](how-automation-occurs-with-salesforce-marketing-cloud.md)
 * [How contact builder is used with Salesforce Marketing Cloud](how-contact-builder-is-used-with-salesforce-marketing-cloud.md)
