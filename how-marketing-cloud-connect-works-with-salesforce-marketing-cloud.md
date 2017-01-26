@@ -5,14 +5,14 @@ For Marketing Cloud Connect prerequisites refer to account and user prerequisite
 * **Use a supported Salesforce.com edition with the v5 connector** - includes:  Unlimited, Enterprise, performance and person Accounts. Professional Edition is supported by the v2 connector. Government Cloud requires a custom script to set up a custom domain which must be scheduled 30 days in advance of planned installation. CipherCloud is not supported by Marketing Cloud Connect.
 * **Use a supported Salesforce Marketing Cloud account** - includes:  Agency or Agency Client Editions: Core Edition, Advanced Edition, Lock and Publish, Enterprise 2.0 Edition, or Reseller Edition. 
 * **Enable Salesforce integration for your Salesforce Marketing Cloud account** - this requires support from Salesforce Marketing Cloud to enable Salesforce Marketing Cloud Connect in the Marketing Cloud account.
-* **Administrator credentials/permissions* - obtain administrator credentials for logging in to Salesforce.com and the Salesforce Marketing Cloud.
+* **Administrator credentials/permissions** - obtain administrator credentials for logging in to Salesforce.com and the Salesforce Marketing Cloud.
 * **4 custom tabs in Salesforce** - ensure four (4) custom tabs are available in Salesforce.
 * **List of integration users** - compile a list of integration users.
 * **Create a report in Salesforce** - create a report that defines an intended send to list. Sending to reports requires either a Contact ID or Lead ID.
-* **Create a test email in Marketing Cloud - validate email to ensure that it passes validation.
+* **Create a test email in Marketing Cloud** - validate email to ensure that it passes validation.
 * **Use recent Chrome or Firefox** - setup is best done with most recent version of Chrome or Firefox.
 * **Default Sender Profiles, Delivery Profiles and Send Classification** - ensure that all Default Sender Profiles, Delivery Profiles and Send Classifications have not been deleted or renamed.
-* **Users must have license for Marketing Cloud and license for Sales or Service Clouds with required permissions.
+* **Users must have license** - license for Marketing Cloud and license for Sales or Service Clouds required with permissions.
 
 ##Sending Email
 
