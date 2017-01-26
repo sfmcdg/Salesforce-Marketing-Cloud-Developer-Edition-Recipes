@@ -1,6 +1,8 @@
 #How account configuration works with Salesforce Marketing Cloud
 
-Salesforce marketing Cloud uses [roles](https://help.marketingcloud.com/en/documentation/marketing_cloud/smc_roles/) to manage how the users can access the to application and features. In summary roles consist of:
+##Salesforce Marketing Cloud Roles
+
+Salesforce Marketing Cloud uses [roles](https://help.marketingcloud.com/en/documentation/marketing_cloud/smc_roles/) to manage how the users can access the to application and features. In summary roles consist of:
 
 * **Marketing Cloud Administrator** - allows a person with this role to assist roles to users and manage Mobile Channels Social Channels, Marketing Cloud Apps and Marketing Cloud Tools. Assign a user to the **Marketing Cloud Administrator** role if they want to be able to have access to all features within the marketing Cloud account.
 * **Marketing Cloud Viewer** - allows a person with this role to view cross-channel marketing activity that results in Marketing Cloud. Assign a user to the **Marketing Cloud Viewer** if they want to be able to view, but not change or execute campaigns in the Marketing Cloud.
@@ -8,13 +10,19 @@ Salesforce marketing Cloud uses [roles](https://help.marketingcloud.com/en/docum
 * **Marketing Cloud Security Administrator** - allows a person with this role to maintain Watchdog security settings and manage user activity and alerts. Assign a user to the **Marketing Cloud Security Administrator** if they want be able to administer users or change configurations. This user has access to MobileConnect and MobilePush, and limited access to email campaigns, automations, content builder and social pages. 
 * **Marketing Cloud Content Editor/Publisher** - allows a person with this role to create and deliver messages through Mobile and Sites Channel Apps. Assign a user to the **Marketing Cloud Content Editor/Publisher** role if they want to be able to create and change content.
 
+##Salesforce Marketing Cloud Business Units
+
 [placeholder for what are business units]
 
 [placeholder for recommendation of appropriate business unit strategy based on user stories, users stories should include examples for publication types, demographic, workflow processes and organisational structure]
 
+##Salesforce Marketing Cloud Reply Mail Management
+
 [placeholder for what is RMM (Reply Mail Management)]
 
 [placeholder for how to troubleshoots issues with Reply Mail Management]
+
+##Salesforce Marketing Cloud Sender Authentication Package
 
 [placeholder for what is SAP (Sender Authentication Package) and how it relates to a business unit, include information about link wrapping, landing pages, image URLs]
 
