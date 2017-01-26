@@ -27,7 +27,7 @@ Notes contain information and links helpful to working with recipes.
 
 * [How to do discovery with Salesforce Marketing Cloud](how-to-do-discovery-with-salesforce-marketing-cloud.md)
 * [How conceptual design is implemented in Salesforce Marketing Cloud](how-conceptual-design-is-implemented-in-salesforce-marketing-cloud.md)
-* Marketing Cloud Connect coming soon ...
+* [How Marketing Cloud Connect works with Salesforce Marketing Cloud](how-marketing-cloud-connect-works-with-salesforce-marketing-cloud.md)
 * [How account configuration works with Salesforce Marketing Cloud](how-account-configuration-works-with-salesforce-marketing-cloud.md)
 * [How reporting works with Salesforce Marketing Cloud](how-reporting-works-with-salesforce-marketing-cloud.md)
 * [How data design works with Salesforce Marketing Cloud](how-data-design-works-with-salesforce-marketing-cloud.md)
