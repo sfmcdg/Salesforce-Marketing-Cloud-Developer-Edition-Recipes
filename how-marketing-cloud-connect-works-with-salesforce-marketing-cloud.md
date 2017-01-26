@@ -33,7 +33,7 @@ For Marketing Cloud Connect prerequisites refer to account and user prerequisite
 
 To segment Service Cloud data in Marketing Cloud create a data filter from the Salesforce data extension and then use the drop and drag filter to setup required segmentation.
 
-Links
+##Links
 
 * [#Working notes for doing setup of Salesforce Marketing Cloud V5 data connector](working-nodes-for-setup-of-salesforce-marketingcloud-v5-connector.md)
 
