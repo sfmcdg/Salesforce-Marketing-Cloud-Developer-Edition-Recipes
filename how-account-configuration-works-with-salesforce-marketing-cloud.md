@@ -23,13 +23,11 @@ A [business unit](https://help.marketingcloud.com/en/documentation/exacttarget/e
 
 ##Salesforce Marketing Cloud Reply Mail Management
 
-[RMM (Reply Mail Management)](https://help.marketingcloud.com/en/documentation/exacttarget/admin/reply_mail_management/) allows emails received as replies to campaign sends to be managed. Using RMM Marketing Cloud emails received can automatically be acknowledged and unsubscribe depending on keywords.
-
-When setting up RMM there is a one-time requirement to specify a reply subdomain, make the appropriate DNS changes and configure RMM as required. Optional setup includes a triggered send and sender profile.
+[RMM (Reply Mail Management)](https://help.marketingcloud.com/en/documentation/exacttarget/admin/reply_mail_management/) allows emails received as replies to campaign sends to be managed. Using RMM Marketing Cloud emails received can automatically be acknowledged and unsubscribe depending on keywords. When setting up RMM there is a one-time requirement to specify a reply subdomain, make the appropriate DNS changes and configure RMM as required. Optional setup includes a triggered send and sender profile.
 
 ##Salesforce Marketing Cloud Sender Authentication Package
 
-[SAP (Sender Authentication Package)](https://help.marketingcloud.com/en/documentation/exacttarget/content/sender_authentication_package/) allows the Marketing Cloud to send emails on behalf of the business domain name. SAP includes
+[SAP (Sender Authentication Package)](https://help.marketingcloud.com/en/documentation/exacttarget/content/sender_authentication_package/) allows the Marketing Cloud to send emails on behalf of the business domain name. SAP includes:
 
 * **Private Domain** - this allows a domain name to be used to send email. This is the domain used on the email from address. Setup includes includes authenticating email sends using the Sender Policy Framework (SPF) and DomainKeys/DKIM authentication.
 * **Account Branding** - this allows links and image URLs to use references to the authenticated domain.
