@@ -12,9 +12,14 @@ Salesforce Marketing Cloud uses [roles](https://help.marketingcloud.com/en/docum
 
 ##Salesforce Marketing Cloud Business Units
 
-[placeholder for what are business units]
+A [business unit](https://help.marketingcloud.com/en/documentation/exacttarget/enterprise/enterprise_20_overview/business_units/) is a feature for helping to manage hierarchical structures and data relationships. Business units can mirror workflow processes, demographic and functional structures within the business. Users can be assigned to business units which can help to resolve branding and regulatory compliance considerations. Content and data can be shared accross business units. Business units are a feature of an Enterprise 2.0 marketing Cloud account.
 
-[placeholder for recommendation of appropriate business unit strategy based on user stories, users stories should include examples for publication types, demographic, workflow processes and organisational structure]
+###Examples of business unit strategies
+
+* **Publication strategy** - an example of a business that uses a publication strategy for business units would be one that is made up of different brands.
+* **Demographic strategy** - an example of a business that uses a demographic strategy for business units would be one that operates in different regions or countries.
+* **Workflow processes strategy** - an example of a business that uses a Workflow processes strategy for business units would be one that has logical distinctions between business functions.
+* **Organisational structure strategy** - an example of a business that uses a organisational structure strategy for business units would be one that has a requirement to map business units to the organisational structure of the business.
 
 ##Salesforce Marketing Cloud Reply Mail Management
 
