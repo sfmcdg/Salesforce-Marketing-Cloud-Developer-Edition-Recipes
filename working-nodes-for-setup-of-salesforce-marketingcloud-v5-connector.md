@@ -1,4 +1,4 @@
-#Working notes for doing setup of Salesforce Marketing Cloud V5 data connector
+# Working notes for doing setup of Salesforce Marketing Cloud V5 data connector
 
 These are working notes for doing setup of Salesforce Marketing Cloud V5 data connector.
 
@@ -6,7 +6,7 @@ Notes compiled January 2016. Notes do not include setup of Marketing Cloud for S
 
 Before starting support request needs to be put in to provision Marketing Cloud.
 
-##Background
+## Background
 
 Data is fundamental to Salesforce Marketing Cloud. Data starts the customer journey and data informs the customer journey. Data is used for sending emails and SMSs.
 Data can be integrated from files, API or a services. Options: 
@@ -21,17 +21,17 @@ The Salesforce V5 Connector is a data integration service.
 
 Following is step by step description for how to setup the V5 connector.
 
-##Overview of process
+## Overview of process
 
 For overview refer to installing V5 connector video https://www.youtube.com/watch?v=jJg0sYGat0M
 
-##Step 1 - prerequisites
+## Step 1 - prerequisites
 
 Ensure no older versions of connector previously installed.
 
 Best done with most recent version of chrome, firefox or internet explorer.
 
-##Step 2 - Add tracking user to Salesforce
+## Step 2 - Add tracking user to Salesforce
 
 In video refer to https://youtu.be/jJg0sYGat0M?t=2m50 - in summary:
 
@@ -39,7 +39,7 @@ In video refer to https://youtu.be/jJg0sYGat0M?t=2m50 - in summary:
 * In Salesforce navigate to Setup > New user
 * Add/specify details as required (hint for name use tracking-MID)
 
-##Step 3 - Preconfiguration > Getting Started > Installing the Marketing Cloud Connector
+## Step 3 - Preconfiguration > Getting Started > Installing the Marketing Cloud Connector
 
 In video refer to https://youtu.be/jJg0sYGat0M?t=4m32s or in docs refer to https://help.exacttarget.com/de-DE/documentation/integrated_products__crm_and_web_analytic_solutions/marketing_cloud_connector_v5/connecting_the_clouds/preconfiguration/ in summary:
 
@@ -54,7 +54,7 @@ Install as admin only with default settings.
 Wait for confirmation email from Salesforce.
 Use following to see if Marketing Cloud app is installed https://ap1.salesforce.com/0A3?setupid=ImportedPackage
 
-##Step 4 - IP Addresses for Inclusion on Whitelists
+## Step 4 - IP Addresses for Inclusion on Whitelists
 
 In video refer to https://youtu.be/jJg0sYGat0M?t=6m - this can be done whilst waiting for step 1 to complete. For IPs refer to https://help.exacttarget.com/en/documentation/exacttarget/resources/exacttarget_ip_addresses_for_inclusion_on_whitelists/
 
@@ -65,14 +65,14 @@ Login SF admin
 In SF navigate to Adminster > Security Controls > Network Access and click new
 Add/specify IP as required
 
-##Step 5 - Preconfiguration > Getting Started > Applying Admin Permissions
+## Step 5 - Preconfiguration > Getting Started > Applying Admin Permissions
 
 In video refer to https://youtu.be/jJg0sYGat0M?t=7m30s - In docs refer to https://help.exacttarget.com/de-DE/documentation/integrated_products__crm_and_web_analytic_solutions/marketing_cloud_connector_v5/connecting_the_clouds/preconfiguration/ - For this follow step by step guide in documentation. Remember to apply change to tracking user
 
-##Step 6 - Setup MC API user
+## Step 6 - Setup MC API user
 
 In docs refer to https://help.exacttarget.com/en/documentation/integrated_products__crm_and_web_analytic_solutions/marketing_cloud_connector_v5/connecting_the_clouds/first_time_configuration__connection_mc_admin/
 
-##Step 7 - Setup MC to SF data integration
+## Step 7 - Setup MC to SF data integration
 
 In docs refer to https://help.exacttarget.com/en/documentation/integrated_products__crm_and_web_analytic_solutions/marketing_cloud_connector_v5/connecting_the_clouds/first_time_configuration__connection_mc_admin/ and https://help.exacttarget.com/en/documentation/integrated_products__crm_and_web_analytic_solutions/marketing_cloud_connector_v5/connecting_the_clouds/integrating_data_into_your_account_with_data_stream
