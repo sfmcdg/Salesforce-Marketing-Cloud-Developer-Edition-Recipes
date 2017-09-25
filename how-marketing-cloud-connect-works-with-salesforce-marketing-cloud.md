@@ -1,4 +1,4 @@
-#How Marketing Cloud Connect works with Salesforce Marketing Cloud
+# How Marketing Cloud Connect works with Salesforce Marketing Cloud
 
 For Marketing Cloud Connect prerequisites refer to account and user prerequisites in [Prerequisites & Critical Concepts](https://help.marketingcloud.com/en/documentation/integrated_products__crm_and_web_analytic_solutions/marketing_cloud_connector_v5/connecting_the_clouds/prerequisites__critical_concepts/), in summary:
 
@@ -14,7 +14,7 @@ For Marketing Cloud Connect prerequisites refer to account and user prerequisite
 * **Default Sender Profiles, Delivery Profiles and Send Classification** - ensure that all Default Sender Profiles, Delivery Profiles and Send Classifications have not been deleted or renamed.
 * **Users must have license** - license for Marketing Cloud and license for Sales or Service Clouds required with permissions.
 
-##Sending Email
+## Sending Email
 
 * **Sending an email from Sales or Service Cloud** - to send an email in Sales or Service Cloud:
   1. Click on the Marketing Cloud tab.
@@ -33,7 +33,7 @@ For Marketing Cloud Connect prerequisites refer to account and user prerequisite
 
 To segment Service Cloud data in Marketing Cloud create a data filter from the Salesforce data extension and then use the drop and drag filter to setup required segmentation.
 
-##Links
+## Links
 
 * [#Working notes for doing setup of Salesforce Marketing Cloud V5 data connector](working-nodes-for-setup-of-salesforce-marketingcloud-v5-connector.md)
 
