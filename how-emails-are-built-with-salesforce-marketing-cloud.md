@@ -1,4 +1,4 @@
-#How emails are built with Salesforce Marketing Cloud
+# How emails are built with Salesforce Marketing Cloud
 
 Required for an email send the following are required:
 

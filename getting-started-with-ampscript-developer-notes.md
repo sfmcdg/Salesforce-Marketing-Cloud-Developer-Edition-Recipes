@@ -1,16 +1,16 @@
-#Getting started AMPScript developer notes
+# Getting started AMPScript developer notes
 
 > According to [Marketing Could, What is AMPScript](http://help.exacttarget.com/AMPscript/) - "AMPscript is a scripting language that you can embed within HTML emails, text emails, landing pages, and SMS messages."
 
 AMPScript is processed on the server by the Marketing Cloud system. What this means is that by the time a document is sent to the client it has already had any AMPScript rendered. For this discussion a document is any Marketing Could HTML/text email, landing page or SMS message.
 
-##AMPScript functions allows documents to:
+## AMPScript functions allows documents to:
 
 * use relational data stored in data extensions
 * have logic to control rendering
 * apply formatting to variables
 
-##How to use AMPScript
+## How to use AMPScript
 
 For the AMPscript script function block wrap AMPScript function with opening `%%[` and closing `]%%`` delimiters, for example `%%[script]%%`.
 
@@ -18,7 +18,7 @@ For inline AMPscript (or function calls outside or the AMPscript script function
 
 An example of an inline AMPscript function is returning a value, for example `%%[ LOWERCASE(Name) ]%%`.
 
-##AMPscript Language Elements
+## AMPscript Language Elements
 
 AMPscript has the following language elements:
 
@@ -38,15 +38,15 @@ AMPscript has the following language elements:
   * [Utilities functions](#utilities-functions)
   * [API functions](#api-ampscript-functions)
 
-###Constants
+### Constants
 
 Constants are fixed numeric, string or boolean values.
 
-###Attributes and Data Extensions
+### Attributes and Data Extensions
 
 Attributes and data extensions are values referenced from functions and objects. Values are enclosed in square brackets, for example `[Data Extension Attribute Name]`.
 
-###Keywords
+### Keywords
 
 Keywords are variables declared, initialized, and modified within a script.
 
@@ -62,7 +62,7 @@ SET @Name = "Sam Sample"
 @Name
 ```
 
-###Conditional logic
+### Conditional logic
 
 Conditional logic is used to control to flow of the script.
 
@@ -71,17 +71,17 @@ Conditional logic consists of:
 * `IF` syntax which is used to evaluate a condition, keywords include  `[IF]`, `[ELSEIF]`, `[ELSE]` and `[ENDIF]`.
 * `FOR` syntax which is used to process through a loop, keywords include `[FOR]` and `[NEXT]`.
 
-###Output
+### Output
 
 Output renders code inside a code block, for example `%%[Output(Now())]%%`.
 
-###Comments
+### Comments
 
 Comments are ignored by AMPScript and contain a readable annotations that can help to make code easier to understand, for example `%%[ /* Insert Comment Here */ ]%%`.
 
-###Functions
+### Functions
 
-####Data Modification Functions
+#### Data Modification Functions
 
 There are 2 types of data modification functions. These are used for send time support and landing page support. These functions allow insert, update, upsert (update/insert), and delete actions to be performed at the subscriber level. Data modification functionality include:
 
@@ -98,12 +98,12 @@ For a discussion of all data extention functions refer to [Data Extension AMPscr
 * [Lookup](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#Lookup), [LookupOrderedRows](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#LookupOrderedRows), [LookupOrderedRowsCS](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#LookupOrderedRows), [LookupRows](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#LookupRows) and [LookupRowsCS](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#LookupRowsCS) functions return result sets from data extensions.
 * [UpdateData](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#UpdateData), [UpdateDE](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#UpdateDE), [UpsertData](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#UpsertData) and [UpsertDE](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#UpsertDE) are used in different contexts to update/upsert a data extension.
 
-#####Examples showing AMPscript data functions
+##### Examples showing AMPscript data functions
 
 * [Example showing how to work with lookup tables (data extension) and selecting fields using IF ELSE logic](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/getting_started_with_ampscript/ampscript_201/)
 * [Example showing how to loop through and conditionally format lookup table (data extension) results](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/getting_started_with_ampscript/ampscript_401/)
 
-####DateTime functions
+#### DateTime functions
 
 Refer to [DateTime AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/datetime_ampscript_functions/) for a complete list of DateTime functions. In summary functions include:
 
@@ -115,7 +115,7 @@ Refer to [DateTime AMPscript Functions](http://help.exacttarget.com/en/documenta
 * [Now](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/datetime_ampscript_functions/#Now) function is used to return the current date and time.
 * [SystemDateToLocalDate](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/datetime_ampscript_functions/#SystemDateToLocalDate) function is used to convert the system date to the user's local time.
 
-####HTTP functions
+#### HTTP functions
 
 Refer to [HTTP AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/http_ampscript_functions/) for a complete list of HTTP functions. In summary functions include:
 
@@ -127,7 +127,7 @@ Refer to [HTTP AMPscript Functions](http://help.exacttarget.com/en/documentation
 * [URLEncode](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/http_ampscript_functions/#URLEncode) function is used to return a fully encoded URL.
 * [WrapLongURL](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/http_ampscript_functions/#WrapLongURL) function is used to return a wrapped URL that can be used in your send to ensure compatibility with Outlook 2007. For use where URL exceeds 975 characters.
 
-#####Example showing AMPscript HTTPGet HTTP function used in email content
+##### Example showing AMPscript HTTPGet HTTP function used in email content
 
 Following is example email content showing AMPscript HTTPGet HTTP function. Data extension used for example contains sendable email. To test copy this code block into email contents and preview.
 
@@ -148,7 +148,7 @@ Set @content = HTTPGet("http://www.example.com/")
 
 ```
 
-####Microsite and landing page functions
+#### Microsite and landing page functions
 
 Refer to [Microsite and Landing Page AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/microsite_and_landing_page_ampscript_functions/) for complete list of microsite and landing page functions. In summary functions include:
 
@@ -163,7 +163,7 @@ Refer to [Microsite and Landing Page AMPscript Functions](http://help.exacttarge
 * [Redirect](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/microsite_and_landing_page_ampscript_functions/#Redirect) function redirects the recipient's browser to the specified URL.
 * [RequestParameter](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/microsite_and_landing_page_ampscript_functions/#RequestParameter) function returns the value of a parameter passed into the query string of a landing page URL or passed via a form post.
 
-#####Example showing AMPscript InsertData function used in microsite or landing page content
+##### Example showing AMPscript InsertData function used in microsite or landing page content
 
 Following is example of microsite or landing page content showing AMPscript InsertData function. Target data extension used for example requires nameofEvent and timeofEvent fields. To test copy this code block into microsite or landing page content and preview.
 
@@ -177,7 +177,7 @@ InsertData("ampscripresult", "nameofEvent", "OPEN", "timeofEvent", NOW())
 ]%%
 ```
 
-####Mobile variables/functions
+#### Mobile variables/functions
 
 Refer to [AMPscript Variables for Use with Mobile Messages](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/ampscript_variables_for_use_with_mobile_messages/) for complete list of mobile variables/functions. In summary variables/functions include:
 
@@ -185,7 +185,7 @@ Refer to [AMPscript Variables for Use with Mobile Messages](http://help.exacttar
 * MSG(O1) - use this function to return the specified MO keyword used in a mobile message conversation.
 * NOUN(O1) - use this function to return the specified noun used in a mobile message.
 
-####Social functions
+#### Social functions
 
 Refer to [Social AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/social_ampscript_functions/) for complete list of social functions. In summary functions include:
 
@@ -193,11 +193,11 @@ Refer to [Social AMPscript Functions](http://help.exacttarget.com/en/documentati
 * [GetSocialPublishURL](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/social_ampscript_functions/#GetSocialPublishURL) function retrieves the URL of a social network from a lookup table and creates a link to that social network for use with content to be shared from an email.
 * [GetSocialPublishURLByName](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/social_ampscript_functions/#GetSocialPublishURLByName) function returns the URL to the publish content page, including a site name, country code, a region ID, and optional pairs of parameter information, such as ShareThis publisher ID information.
 
-####Utilities functions
+#### Utilities functions
 
 Refer to [Utilities AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/utilities_ampscript_functions/) for complete list of utility functions. In summary utility functions all include functions that to do calculations, encoding/decoding, logical tests and string formatting/manipulation.
 
-#####Example showing some AMPscript utilities functions functions used in email content
+##### Example showing some AMPscript utilities functions functions used in email content
 
 Following is example email content showing some of the AMPscript utilities functions. Data extension used for example contains sendable email and name fields. To test copy this code block into email contents and preview.
 
@@ -226,7 +226,7 @@ Set @subscriber_name = name
 
 ```
 
-####API AMPscript functions
+#### API AMPscript functions
 
 [API AMPscript functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/) allow AMPscript to work with [objects in the Marketing Cloud API](https://help.exacttarget.com/en/technical_library/web_service_guide/objects/). The Marketing Cloud API objects allow various functionallity of the Marketing Cloud to be controlled programmaticly. Example use cases include sending emails and creating data extensions.
 
@@ -244,7 +244,7 @@ Refer to [API AMPscript functions](http://help.exacttarget.com/en/documentation/
 * [RaiseError](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#RaiseError) use to handle errors.
 * [SetObjectProperty](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/api_ampscript_functions/#SetObjectProperty) used to set a value in the API object.
 
-#####Example showing API AMPscript function to insert a record into a data extension.
+##### Example showing API AMPscript function to insert a record into a data extension.
 
 Following is example showing how to insert a record into a data extension using an API AMPscript function. In example values will be inserted into the nameofEvent and timeofEvent fields of TargetDE data extension. Note that AMPScript also provides [InsertData](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#InsertData) and [InsertDE](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/data_extension_ampscript_functions/#InsertDE) for inserting data into a data extension.
 
@@ -279,27 +279,27 @@ Set @StatCode = InvokeCreate(@de, @StatMessage, @ErrorCode)
 ]%%
 ```
 
-#####Links to examples showing API AMPscript functions
+##### Links to examples showing API AMPscript functions
 
 * [Creating a Data Extension Using AMPscript and the Web Service API](https://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/using_ampscript_with_the_web_service_api/creating_a_data_extension_using_ampscript_and_the_web_service_api/)
 
-##Helpful AMPScript links and resources
+## Helpful AMPScript links and resources
 
-###AMPScript must reads:
+### AMPScript must reads:
 
 >Suggested must reads for releasing potential of AMPScript functions.
 
 * [What is AMPScript](http://help.exacttarget.com/AMPscript/) - overview plus links
 * [AMPscript Syntax Guide](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/) - webpage contains syntax and alphabetical list of AMPscript functions
 
-###Interesting AMPScript reads:
+### Interesting AMPScript reads:
 
 >Suggested reads for advanced functionallity.
 
 * [Content AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/) allow for functionallity to work with: [AttachedFile](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#AttachFile) for email attachments, [BarCodeURL](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BarCodeURL) for working with barcodes, [BeginImpressionRegion](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BeginImpressionRegion), [EndImpressionRegion](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#EndImpressionRegion) for working with impression regions, [BuildOptionList](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BuildOptionList) for option lists, content creation from delimetered/XML data with [BuildRowSetFromString](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BuildRowSetFromString) and [BuildRowSetFromXML](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#BuildRowSetFromXML) functions, SMS with CreateSmsConversation and EndSmsConversation functions, [GetPortfolioItem](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#GetPortfolioItem) and [Image](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#Image) functions for working with portfolios, [TransformXML](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#TransformXML) for transforming XML items in portfolio and [WAT and WATP](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/content_ampscript_functions/#WAT) functions for web analytics tracking options. Some of these require additional features enabled in the Marketing Cloud account.
 * [Contacts AMPscript Functions](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/contacts_ampscript_functions/) takes information sent from mobile devices to Salesforce Marketing Cloud applications and processes it accordingly. Contacts AMPscript functions cannot be used in email messages or SMS messages outside of the MobileConnect app. The contacts AMPscript function is [UpsertContact](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/contacts_ampscript_functions/#UpsertContacts). Function can be used to update a contact from a landing page or from an SMS message.
 
-###AMPScript guides for:
+### AMPScript guides for:
 
 * [Microsoft Dynamics CRM](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/ampscript_functions_for_use_with_microsoft_dynamics_crm/)
 * [Salesforce.com](http://help.exacttarget.com/en/documentation/exacttarget/content/ampscript/ampscript_syntax_guide/ampscript_functions_for_use_with_salesforcecom/)

@@ -1,4 +1,4 @@
-#How automation occurs with Salesforce Marketing Cloud
+# How automation occurs with Salesforce Marketing Cloud
 
 > Salesforce Marketing Cloud Automation Studio allows processes consisting of marketing activities to be triggered to start and be scheduled.
 
@@ -14,6 +14,6 @@ An automation will generally be used to start a batch process to load a file or 
 
 In Automation Sudio triggered automations are used to start processes that import files and run subsequent tasks. Scheduled automations will generally be used to run recurring processes. Activities in a scheduled automation can be used to evaluate segments to determine if marketing activities should be run using queries and filtered data extensions.
 
-##Links
+## Links
 
 * [Automation Studio](https://help.marketingcloud.com/en/documentation/automation_studio/)
