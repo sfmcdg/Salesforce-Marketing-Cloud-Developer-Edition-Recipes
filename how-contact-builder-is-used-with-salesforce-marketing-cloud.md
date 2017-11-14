@@ -1,16 +1,16 @@
-#How contact builder is used with Salesforce Marketing Cloud
+# How contact builder is used with Salesforce Marketing Cloud
 
 > Salesforce Marketing Cloud Contact Builder allows the data designer to access data, design data relationships and link data to external sources.
 
 Contact Builder is a data design tool used access data contained in a Salesforce Marketing Cloud account and to design data relationships. 
 
-##Examples for how to build attribute groups
+## Examples for how to build attribute groups
 
-###Issue tracker example
+### Issue tracker example
 
 In the issue tracker data relationship example, each contact record can have multiple issues. In this simple example, a contact record is linked to many records in the issues table.
 
-####How to implement in contact builder the issue tracker example
+#### How to implement in contact builder the issue tracker example
 
 1. In data designer create a new attribute group.
 2. Create or select the contacts data extension.
@@ -18,7 +18,7 @@ In the issue tracker data relationship example, each contact record can have mul
 4. Create or select the issues data extension.
 5. Link the issues data extension to the contacts data extension. The relationship between the two data extensions should be a one-to-many relationship between the PrimaryKey on the contacts data extension and the corresponding field on the issues data extension.
 
-##Contact Builder Tools
+## Contact Builder Tools
 
 Contact Builder consists of the following tools:
 
@@ -29,7 +29,7 @@ Contact Builder consists of the following tools:
 * [**Imports**](https://help.marketingcloud.com/en/documentation/contact_builder/imports/) - is used to define an import definition.
 * [**Contact**](https://help.marketingcloud.com/en/documentation/contact_builder/contacts_configuration/) - is used to determine channel send preferences. 
 
-##Data Relationships
+## Data Relationships
 
 When relationships are created in the data design tool the cardinality for the relationship is specified, options include:
 
@@ -40,6 +40,6 @@ When relationships are created in the data design tool the cardinality for the r
 
 Changes to cardinality change the relationship that data extensions have with one another. After making changes to cardinality review all filtered lists, filters and scheduled sends.
 
-##Links
+## Links
 
 * [Contact Builder](https://help.marketingcloud.com/en/documentation/contact_builder/)

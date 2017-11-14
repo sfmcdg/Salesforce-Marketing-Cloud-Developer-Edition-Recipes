@@ -1,4 +1,4 @@
-#How reporting works with Salesforce Marketing Cloud
+# How reporting works with Salesforce Marketing Cloud
 
 > Salesforce Marketing Cloud reporting allow for the marketer to view, access and use reporting data in campaigns.
 

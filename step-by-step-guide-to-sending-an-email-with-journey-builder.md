@@ -1,8 +1,8 @@
-#Step by step guide to sending an email with journey builder
+# Step by step guide to sending an email with journey builder
 
 In this example an email will be sent when a new record is added to the data extension.
 
-##Setup database and relationships
+## Setup database and relationships
 
 **Contact builder** is used to create the **data extension**. In **contact builder** the **data extension** is linked to the **contact record**.
 
@@ -22,7 +22,7 @@ In this example an email will be sent when a new record is added to the data ext
     2.  In edit section for email channel select **add address**, then select the **EmailAddress** from the **data extension** - in example data extension will be called _**DemoDataConcept**_. When finished save changes.
 5. Finally select **data extensions** from menu, then select _**DemoConceptData**_, edit behaviour, select **used for sending** and ensure that _**EmailAddress**_ relates to subscriber on _**Subscriber Key**_.
 
-##Create interaction (program)
+## Create interaction (program)
 
 **Journey Builder** is used to create the **interaction** that records will be processed through.
 
@@ -43,7 +43,7 @@ Before starting this section setup content for email.
        3.  Change any timers to _**wait 1 minute**_.
        4.  Save and activate. When an **interaction** is activiate it means that it is available to be run.
 
-##Add some data to the database
+## Add some data to the database
 
 Next add some data to the _**DemoConceptData**_ **data extension**.
 
@@ -51,7 +51,7 @@ Next add some data to the _**DemoConceptData**_ **data extension**.
 2. Select **data extensions** from the menu, for example select the _**DemoConceptData**_ data extension, then click on the **records** tab, then select **add records**.
 3. Populate only **EmailAddress** , **Name** fields and then **save**.
 
-##Run the interaction (program)
+## Run the interaction (program)
 
 Next use **automation strudio** to run the **interaction** against the **data extension** that was created earlier.
 
